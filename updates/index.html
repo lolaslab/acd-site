@@ -1,0 +1,38 @@
+---
+layout: layouts/default.njk
+title: ACD - Updates
+pagination:
+    data: collections.posts
+    size: 5
+    alias: updates
+    reverse: true
+
+---
+<h1>Updates</h1>
+
+<ul class="secondary-container">
+    {% for update in updates %}
+    <li class="li-element-spacing">
+        <h2>{{ update.data.heading }}</h2>
+        <p class="note">{{ update.data.date | date: "%Y-%b-%d" }}</p>
+        <p id="description">{{ update.data.description }}</p>
+        <p class="permalink"><a href={{ update.data.slug }} aria-label={{ update.data.heading }}>Continue
+            Reading</a></p>
+    </li>
+    {%- endfor -%}
+</ul>
+
+
+<nav aria-label="pagination">
+    <ul class="pagination-list">
+        {%- for pageEntry in pagination.pages %}
+        <li><a href="{{ pagination.hrefs[ forloop.index0 ] }}"
+               {%
+                if page.url == pagination.hrefs[ forloop.index0 ]
+               %}
+               aria-current="page"
+               {% endif %}
+        >Page {{ forloop.index }}</a></li>
+        {%- endfor %}
+    </ul>
+</nav>
