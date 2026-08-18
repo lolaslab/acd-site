@@ -112,8 +112,12 @@ body {
 
 .container {
     margin: 0 var(--space-l);
-    max-width: 80ch;
+    max-width: 60ch;
     justify-self: center;
+}
+
+.sec-container {
+    margin: 0 var(--space-s);
 }
 
 .title {
@@ -144,5 +148,24 @@ p, ol, ul, li {
 
 strong {
     font-weight: 400;
+}
+
+.section-heading {
+
+}
+.sec-section {
+
+}
+
+.funders-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.funder-logo {
+    width: 12em;
+    height: auto;
 }
 
