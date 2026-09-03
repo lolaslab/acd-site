@@ -55,47 +55,15 @@
         </article>
         <article class="sec-container">
             <section id="contributors" class="sec-section">
-                <h3 class="section-heading">Key Contributors</h3>
+                <h3 class="section-heading">Developed By</h3>
                 <ul>
                     <li>Lola Odelola/lola's lab</li>
                     <li>Cynthia Shelly/scaled a11y</li>
                 </ul>
             </section>
 
-            <section id="funders" class="sec-section">
-                <h3 class="section-heading">Funders</h3>
-                <ul class="funders-list">
-                    <li><img src="images/a11y.svg" alt="The A11y Project"
-                             class="funder-logo"></li>
-                    <li>
-                        <img src="images/mdn.svg" alt="Mozilla Developer Network"
-                             class="funder-logo">
-                    </li>
-                    <li>
-                        <img src="images/stf.svg" alt="Sovereign Tech Standards Fund" class="funder-logo">
-                    </li>
-                </ul>
-                <ul class="funders-list">
-                    <li>
-                        <object type="image/svg+xml"
-                                data="https://opencollective.com/lolas-lab/backers.svg?avatarHeight=2re&width=1000&button=false">
-                        </object>
-                    </li>
-                    <li>
-                        <object type="image/svg+xml"
-                                data="https://opencollective.com/acd/backers.svg?avatarHeight=2rem&width=800&button=false">
-                        </object>
-                    </li>
-                    <li>
-                        <object type="image/svg+xml"
-                                data="https://opencollective.com/lolas-lab/sponsors.svg?avatarHeight=2rem&width=800&button=false">
-                        </object>
-                    </li>
-                </ul>
-            </section>
-
             <section id="partners" class="sec-section">
-                <h3 class="section-heading">Partners</h3>
+                <h3 class="section-heading">Partnered With</h3>
                 <ul class="funders-list">
                     <li>
                         <img src="images/mdn.svg" alt="Mozilla Developer Network"
@@ -103,13 +71,36 @@
                     </li>
                     <li><img src="images/owd.png" alt="Open Web Docs"
                              class="funder-logo"></li>
-                    <li>ARIA-AT</li>
+                    <li id="aria-at-logo">ARIA-AT</li>
                     <li><img src="images/baseline.svg" alt="Baseline"
                              class="funder-logo"></li>
                     <li><img src="images/a11y.svg" alt="The A11y Project"
                              class="funder-logo"></li>
                     <li><img src="images/tetra.svg" alt="Tetralogical"
                              class="funder-logo"></li>
+                </ul>
+            </section>
+
+            <section id="funders" class="sec-section">
+                <h3 class="section-heading">Funded By</h3>
+                <ul class="funders-list">
+                    <li><img src="images/a11y.svg" alt="The A11y Project"
+                             class="funder-logo" loading="lazy"></li>
+                    <li>
+                        <img src="images/mdn.svg" alt="Mozilla Developer Network"
+                             class="funder-logo" loading="lazy">
+                    </li>
+                    <li>
+                        <img src="images/stf.svg" alt="Sovereign Tech Standards Fund"
+                             class="funder-logo" loading="lazy">
+                    </li>
+                </ul>
+                <ul class="funders-list">
+                    {% for funder in funders %}
+                    <li>
+                        <img src="{{ funder.avatar }}" alt="{{ funder.name }}" class="funder-avatar" loading="lazy">
+                    </li>
+                    {% endfor %}
                 </ul>
             </section>
         </article>

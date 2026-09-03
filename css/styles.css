@@ -151,7 +151,10 @@ strong {
 }
 
 .section-heading {
-
+    justify-self: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-m);
 }
 .sec-section {
 
@@ -167,5 +170,18 @@ strong {
 .funder-logo {
     width: 12em;
     height: auto;
+}
+
+.funder-avatar {
+    width: 4.5em;
+    border-radius: 50%;
+}
+
+#aria-at-logo {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    font-size: 1.625rem;
 }
 
