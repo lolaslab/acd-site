@@ -59,9 +59,9 @@ ul {
     --ink: #1c1a2e;
     --ink-muted: #55526a;
     --surface: #F2F0EF;
-    --line: rgb(28 26 46 / 0.12);
-    --link: rgb(226,255,50);
-    --visited-link: #ff97cc;
+    /*--line: rgb(28 26 46 / 0.12);*/
+    /*--link: rgb(226,255,50);*/
+    /*--visited-link: #ff97cc;*/
 
     /* Type */
     --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -70,8 +70,10 @@ ul {
     --text-l: 1.375rem;
     --text-display: clamp(2.5rem, 6vw, 4rem);
 
+    /* Spacing */
+
     /* Shape */
-    /*--radius-pill: 999px;*/
+    --radius-pill: 999px;
     --page-width: 68rem;
 
 }
@@ -79,7 +81,7 @@ ul {
 body {
     max-width: 100%;
     min-height: 100vh;
-    background-color: #F2F0EF;
+    background-color: var(--surface);
     font-family: var(--font);
     color: var(--ink);
 }
@@ -113,7 +115,7 @@ body {
 }
 
 .sec-container {
-    margin: 0 var(--space-s);
+    margin: 0 auto;
 }
 
 .sec-container::before {
@@ -121,7 +123,7 @@ body {
     display: block;
     width: 6rem;
     height: 6px;
-    margin: 0 auto var(--space-l);
+    margin: 0 auto;
     border-radius: 999px;
     background: var(--brand-gradient);
 }
@@ -134,7 +136,7 @@ body {
     padding-block: 1.5rem;
 }
 
-.nav-item {
+.nav-list-item {
     margin: 0;
 }
 
@@ -150,11 +152,16 @@ strong {
 }
 
 .section-heading {
-    margin-bottom: var(--space-m);
+    margin-bottom: 2em;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 600;
+    text-align: center
+}
+
+.section-heading:nth-child(1){
+    margin-top: 2em;
 }
 
 .contributor-list {
@@ -175,9 +182,6 @@ strong {
 }
 
 #aria-at-logo {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     font-size: 1.625rem;
 }
@@ -185,6 +189,7 @@ strong {
 #scaled-a11y {
     max-width: 6em;
 }
+
 #logo-word-mark {
     width: min-content;
     margin: 0 auto 0 0;
@@ -203,7 +208,7 @@ strong {
 .logo-letter:nth-child(2)::first-letter { color: color-mix(in oklab, var(--magenta), var(--navy)); }
 .logo-letter:nth-child(3)::first-letter { color: var(--navy); }
 
-a {
+a, .nav-a:visited {
     color: var(--navy);
     text-decoration: none;
     font-weight: 600;
@@ -213,8 +218,4 @@ a:visited {
 }
 a:hover {
     font-weight: 900;
-}
-
-#support-a {
-
 }
