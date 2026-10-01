@@ -120,6 +120,25 @@ body {
     margin: 0 var(--space-s);
 }
 
+.sec-container::before {
+    content: "";
+    display: block;
+    width: 6rem;
+    height: 4px;
+    margin: 0 auto var(--space-l);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1)
+    35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.sec-container .section-heading {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
 .title {
     font-weight: 800;
     font-size: 3.5rem;

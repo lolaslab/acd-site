@@ -25,32 +25,6 @@
                         from the start.
                     </p>
                 </section>
-
-                <section id="plan">
-                    <p>To start we're focussing on HTML-AAM web features, on four popular desktop browsers
-                        (Chrome, Safari, Firefox, Edge), across three screen readers (Jaws, VoiceOver, NVDA). We
-                        will expand to include more web features and assistive technologies.
-                    <ol>
-                        <li>
-                            <strong>Lay the groundwork.</strong>
-                            <p>Accessibility tests already exist, but they were designed to be read by people
-                                rather than pulled into other tools. Getting them ready for that comes first,
-                                because everything else builds on it.</p>
-                        </li>
-
-                        <li>
-                            <strong>Broaden the coverage.</strong>
-                            <p>Not every web feature has been tested yet,
-                                so the next step is extending the tests to cover more of them.</p>
-                        </li>
-                        <li>
-                            <strong>Get the data to developers.</strong>
-                            <p>Turn the results into a clear answer about whether a feature
-                                is accessibility-supported, and publish it in the places
-                                developers already check for browser support.</p>
-                        </li>
-                    </ol>
-                </section>
             </main>
         </section>
         <section class="sec-container">
@@ -101,9 +75,11 @@
                     </li>
                 </ul>
                 <ul class="contributor-list">
-                    {% for contributor in contributors %}
+                    {% for funder in funders %}
                     <li>
-                        <img src="{{ contributor.avatar }}" alt="{{ contributor.name }}" class="contributor-avatar" loading="lazy">
+                        <img src="{{ funder.avatar }}"
+                             alt="{{ funder.name }}"
+                             class="contributor-avatar" loading="lazy">
                     </li>
                     {% endfor %}
                 </ul>
