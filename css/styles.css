@@ -79,6 +79,7 @@ body {
     background-color: var(--surface);
     font-family: var(--font);
     color: var(--text);
+    overflow-x: clip;
 }
 
 .container, header, footer {
@@ -255,4 +256,67 @@ a:hover {
 
 .section-intro {
     text-align: center;
+}
+
+#contribute-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw) 2.5rem;
+}
+
+@media (min-width: 48rem) {
+    #contribute-list {
+        flex-direction: row;
+    }
+    #contribute-tests { padding-right: 2rem; }
+    #contribute-fund  { padding-left: 2rem; }
+}
+
+#contribute-list li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 2rem;
+    color: #FFF;
+    font-size: var(--text-m);
+    line-height: 1.6;
+    --edge: max(clamp(1rem, 5vw, 3rem), (100vw - var(--page-width)) / 2);
+    padding: 2.5rem var(--edge);
+}
+
+#contribute-tests { background: var(--accent); }
+#contribute-fund  { background: #9A4D57; }
+
+#contribute-list h3 {
+    margin-bottom: 0.5rem;
+    font-size: var(--text-l);
+    font-weight: 700;
+}
+
+#contribute-list p {
+    font-size: inherit;
+    margin: 0 0 1.5rem;
+}
+
+#contribute-list .contribute-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.contribute-links a,
+.contribute-links a:visited {
+    color: #FFF;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
+}
+
+.contribute-links a:hover {
+    text-decoration-thickness: 4px;
 }
