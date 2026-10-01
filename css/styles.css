@@ -185,3 +185,7 @@ strong {
     font-size: 1.625rem;
 }
 
+#scaled-a11y {
+    max-width: 6em;
+}
+
