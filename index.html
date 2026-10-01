@@ -17,29 +17,28 @@
                 start.
             </p>
             <section id="plan">
-                <p>To start we're focussing on HTML-AAM web features, on four popular desktop browsers
-                    (Chrome, Safari, Firefox, Edge), across three screen readers (Jaws, VoiceOver, NVDA). We
-                    will expand to include more web features and assistive technologies.
-                <ol>
+                <h2 class="section-heading">Our roadmap</h2>
+                <p class="section-intro">ACD is in early development, and we're looking for funding to bring it to life.</p>
+                <ol role="list" id="roadmap">
                     <li>
-                        Lay the groundwork.
-                        <p>Accessibility tests already exist, but they were designed to be read by people
-                            rather than pulled into other tools. Getting them ready for that comes first,
-                            because everything else builds on it.</p>
-                    </li>
-
-                    <li>
-                        Broaden the coverage.
-                        <p>Not every web feature has been tested yet,
-                            so the next step is extending the tests to cover more of them.</p>
+                        <span>Expand test coverage</span>
+                        We're adding browser and screen reader tests for more web features,
+                        contributing to two established test suites: Web Platform Tests (WPT) and ARIA-AT.
+                        To start we're focusing on HTML web features in Chrome, Edge, Firefox and Safari,
+                        with JAWS, NVDA and VoiceOver.
                     </li>
                     <li>
-                        Get the data to developers.
-                        <p>Turn the results into a clear answer about whether a feature
-                            is accessibility-supported, and publish it in the places
-                            developers already check for browser support.</p>
+                        <span>Compute a support status</span>
+                        The ACD collector will combine WPT and ARIA-AT results into an
+                        accessibility support status for each feature, published as machine-readable data.
+                    </li>
+                    <li>
+                        <span>Bring it to developer tools</span>
+                        ACD data can then be integrated into the tools developers already use to check
+                        browser support, such as MDN and Baseline.
                     </li>
                 </ol>
+                <p>Help us get there. <a href="#">Support the work</a></p>
             </section>
             <section class="sec-container">
                 <section id="developers" class="sec-section">

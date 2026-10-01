@@ -204,13 +204,55 @@ strong {
 }
 
 a, .nav-a:visited {
-    /*color: var(--accent);*/
     text-decoration: none;
     font-weight: 600;
 }
-a:visited {
 
-}
 a:hover {
     font-weight: 900;
+}
+
+#roadmap {
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0 0 2.5rem;
+}
+
+@media (min-width: 48rem) {
+    #roadmap {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+#roadmap li {
+    counter-increment: step;
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    font-size: var(--text-m);
+    border-radius: 1rem;
+    line-height: 1.6;
+}
+
+#roadmap li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: var(--text-l);
+    font-weight: 700;
+    color: var(--accent);
+}
+
+#roadmap li span {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.section-intro {
+    text-align: center;
 }
