@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     <body>
-        <article class="container">
+        <section class="container">
             <header>
                 <h1 class="">Accessibility Compatibility Data</h1>
                 {% include "partials/_nav.njk" %}
@@ -52,62 +52,63 @@
                     </ol>
                 </section>
             </main>
-        </article>
-        <article class="sec-container">
-            <section id="contributors" class="sec-section">
+        </section>
+        <section class="sec-container">
+            <section id="developers" class="sec-section">
                 <h3 class="section-heading">Developed By</h3>
-                <ul class="funders-list">
+                <ul class="contributors-list">
                     <li><img alt="lola's lab - lola odelola"
-                             src="images/lolas-lab.svg" class="funder-logo"
+                             src="images/lolas-lab.svg" class="contributor-logo"
                              loading="lazy"></li>
                     <li><img alt="Scaled Ally - cynthia shelly"
                              src="images/scaled-a11y.png"
-                             class="funder-logo" id="scaled-a11y" loading="lazy"></li>
+                             class="contributor-logo" id="scaled-a11y"
+                             loading="lazy"></li>
                 </ul>
             </section>
 
-            <section id="partners" class="sec-section">
-                <h3 class="section-heading">Partnered With</h3>
-                <ul class="funders-list">
+            <section id="stakeholders" class="sec-section">
+                <h3 class="section-heading">Stakeholders</h3>
+                <ul class="contributor-list">
                     <li>
                         <img src="images/mdn.svg" alt="Mozilla Developer Network"
-                             class="funder-logo">
+                             class="contributor-logo">
                     </li>
                     <li><img src="images/owd.png" alt="Open Web Docs"
-                             class="funder-logo"></li>
+                             class="contributor-logo"></li>
                     <li id="aria-at-logo">ARIA-AT</li>
                     <li><img src="images/baseline.svg" alt="Baseline"
-                             class="funder-logo"></li>
+                             class="contributor-logo"></li>
                     <li><img src="images/a11y.svg" alt="The A11y Project"
-                             class="funder-logo"></li>
+                             class="contributor-logo"></li>
                     <li><img src="images/tetra.svg" alt="Tetralogical"
-                             class="funder-logo"></li>
+                             class="contributor-logo"></li>
                 </ul>
             </section>
 
             <section id="funders" class="sec-section">
                 <h3 class="section-heading">Funded By</h3>
-                <ul class="funders-list">
+                <ul class="contributor-list">
                     <li><img src="images/a11y.svg" alt="The A11y Project"
-                             class="funder-logo" loading="lazy"></li>
+                             class="contributor-logo" loading="lazy"></li>
                     <li>
                         <img src="images/mdn.svg" alt="Mozilla Developer Network"
-                             class="funder-logo" loading="lazy">
+                             class="contributor-logo" loading="lazy">
                     </li>
                     <li>
                         <img src="images/stf.svg" alt="Sovereign Tech Standards Fund"
-                             class="funder-logo" loading="lazy">
+                             class="contributor-logo" loading="lazy">
                     </li>
                 </ul>
-                <ul class="funders-list">
-                    {% for funder in funders %}
+                <ul class="contributor-list">
+                    {% for contributor in contributors %}
                     <li>
-                        <img src="{{ funder.avatar }}" alt="{{ funder.name }}" class="funder-avatar" loading="lazy">
+                        <img src="{{ contributor.avatar }}" alt="{{ contributor.name }}" class="contributor-avatar" loading="lazy">
                     </li>
                     {% endfor %}
                 </ul>
             </section>
-        </article>
+        </section>
         {% include "partials/_footer.njk" %}
     </body>
 </html>

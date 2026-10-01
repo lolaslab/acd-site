@@ -160,19 +160,19 @@ strong {
 
 }
 
-.funders-list {
+.contributor-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1rem;
 }
 
-.funder-logo {
+.contributor-logo {
     width: 12em;
     height: auto;
 }
 
-.funder-avatar {
+.contributor-avatar {
     width: 4.5em;
     border-radius: 50%;
 }
