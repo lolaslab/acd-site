@@ -9,24 +9,46 @@
     <body >
         {% include "partials/_nav.njk" %}
         <main class="container">
-            <h1 class="title">Bringing accessibility support data to developer tools.</h1>
-            <p id="desc">For a long time accessibility support data has been separated
-                from web feature support data, making it difficult for
-                web developers to know which web features have accessibility gaps in
-                either the screen reader, browser, or both. ACD aims to surface this
-                data where developers already look for web feature support.
-                We're working with Mozilla, BCD, ARIA-AT, and Baseline so
-                developers can build accessibility-supported experiences
-                from the start.
+            <h1 class="title">Bringing accessibility support data to developer tools</h1>
+            <p id="desc">Accessibility support data has always lived apart from browser compatibility data, so
+                developers can't easily see where a feature has gaps: in the browser, the screen reader, or both.
+                ACD brings that data to the places developers already check for browser support. We're working with
+                Mozilla, BCD, ARIA-AT and Baseline so developers can build accessibility-supported experiences from the
+                start.
             </p>
+            <section id="plan">
+                <p>To start we're focussing on HTML-AAM web features, on four popular desktop browsers
+                    (Chrome, Safari, Firefox, Edge), across three screen readers (Jaws, VoiceOver, NVDA). We
+                    will expand to include more web features and assistive technologies.
+                <ol>
+                    <li>
+                        Lay the groundwork.
+                        <p>Accessibility tests already exist, but they were designed to be read by people
+                            rather than pulled into other tools. Getting them ready for that comes first,
+                            because everything else builds on it.</p>
+                    </li>
+
+                    <li>
+                        Broaden the coverage.
+                        <p>Not every web feature has been tested yet,
+                            so the next step is extending the tests to cover more of them.</p>
+                    </li>
+                    <li>
+                        Get the data to developers.
+                        <p>Turn the results into a clear answer about whether a feature
+                            is accessibility-supported, and publish it in the places
+                            developers already check for browser support.</p>
+                    </li>
+                </ol>
+            </section>
             <section class="sec-container">
                 <section id="developers" class="sec-section">
-                    <h2 class="section-heading">Developed By</h2>
+                    <h2 class="section-heading">Developed by</h2>
                     <ul class="contributor-list">
-                        <li><img alt="lola's lab - lola odelola"
+                        <li><img alt="lola's lab"
                                  src="images/lolas-lab.svg" class="contributor-logo"
                                  loading="lazy"></li>
-                        <li><img alt="Scaled Ally - cynthia shelly"
+                        <li><img alt="Scaled Ally"
                                  src="images/scaled-a11y.png"
                                  class="contributor-logo" id="scaled-a11y"
                                  loading="lazy"></li>
@@ -34,12 +56,12 @@
                 </section>
 
                 <section id="funders" class="sec-section">
-                    <h2 class="section-heading">Supported By</h2>
+                    <h2 class="section-heading">Supported by</h2>
                     <ul class="contributor-list">
                         <li><img src="images/a11y.svg" alt="The A11y Project"
                                  class="contributor-logo" loading="lazy"></li>
                         <li>
-                            <img src="images/mdn.svg" alt="Mozilla Developer Network"
+                            <img src="images/mdn.svg" alt="Mozilla Web Docs"
                                  class="contributor-logo" loading="lazy">
                         </li>
                         <li>
