@@ -133,7 +133,7 @@ body {
 }
 
 p, ol, ul, li {
-    font-size: var(--text-m);
+    font-size: var(--text-l);
     margin: 0px auto 2.5rem;
     line-height: 1.7;
     font-weight: 400;
