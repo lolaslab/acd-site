@@ -111,9 +111,12 @@ body {
 }
 
 .container {
-    margin: 0 var(--space-l);
+    padding-inline: clamp(1rem, 5vw, 3rem);
+    margin-inline: auto;
+}
+
+#desc {
     max-width: 60ch;
-    justify-self: center;
 }
 
 .sec-container {
@@ -131,20 +134,13 @@ body {
     35%, rgba(0, 212, 255, 1) 100%);
 }
 
-.sec-container .section-heading {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: 600;
-    opacity: 0.8;
-}
-
 .title {
     font-weight: 800;
     font-size: 3.5rem;
     letter-spacing: -0.02em;
     line-height: 1;
-    background: linear-gradient(180deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background: #850d57;
+    background: linear-gradient(180deg,rgba(133, 13, 87, 1) 0%, rgba(9, 9, 121, 1) 79%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     max-width: 70ch;
@@ -162,7 +158,7 @@ p, ol, ul, li {
     margin: 0px auto 2.5rem;
     line-height: 1.7;
     font-family: sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 strong {
@@ -170,11 +166,14 @@ strong {
 }
 
 .section-heading {
-    justify-self: center;
-    font-size: 2rem;
-    font-weight: 700;
     margin-bottom: var(--space-m);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    opacity: 0.8;
 }
+
 .sec-section {
 
 }
