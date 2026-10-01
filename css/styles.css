@@ -115,6 +115,7 @@ body {
     margin-inline: auto;
 }
 
+
 #desc {
     max-width: 60ch;
 }
@@ -149,8 +150,6 @@ body {
     border-radius: 999px;
     background: linear-gradient(180deg,rgba(133, 13, 87, 1) 0%, rgba(9, 9, 121, 1) 79%);
 }
-
-
 
 #nav-list {
     display: flex;
@@ -207,4 +206,21 @@ strong {
 #scaled-a11y {
     max-width: 6em;
 }
+#logo-word-mark {
+    width: min-content;
+    margin: 0 0 var(--space-s);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
 
+.logo-letter {
+    display: block;
+}
+
+.logo-letter::first-letter {
+    color: rgba(9, 9, 121) ;
+}
