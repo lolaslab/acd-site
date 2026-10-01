@@ -320,3 +320,136 @@ a:hover {
 .contribute-links a:hover {
     text-decoration-thickness: 4px;
 }
+
+.mock {
+    margin: 0 0 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    border-radius: 1rem;
+}
+
+.mock-label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: var(--text-s);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.mock-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.mock-header h3 {
+    font-size: var(--text-l);
+    font-weight: 700;
+}
+
+.mock-header p,
+.mock td,
+.mock th {
+    font-size: var(--text-m);
+    margin: 0;
+}
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+.mock table {
+    width: 100%;
+    min-width: 32rem;
+    border-collapse: collapse;
+}
+
+.mock caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.mock th,
+.mock td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+}
+
+.mock thead th {
+    font-weight: 700;
+}
+
+.status {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-s);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status::before {
+    margin-right: 0.35em;
+}
+
+.status-yes     { background: #DCF2E3; color: #0B5A2A; }
+.status-yes::before     { content: "✓"; }
+.status-partial { background: #FFF1CC; color: #6B4A00; }
+.status-partial::before { content: "◐"; }
+.status-no      { background: #FBE0E0; color: #8A1C1C; }
+.status-no::before      { content: "✕"; }
+.status-na      { background: #EEEEEE; color: #4A4A4A; }
+.status-na::before      { content: "–"; }
+
+.mock-json {
+    margin-top: 1.5rem;
+}
+
+.mock-json summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.mock-json pre {
+    margin-top: 1rem;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background: #F4F4F6;
+    font-size: var(--text-s);
+    line-height: 1.5;
+}
+
+.mock .cell-note {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: var(--text-s);
+    line-height: 1.4;
+}
+
+.status-na         { background: transparent; color: #4A4A4A; border: 1px dashed #BDBDBD; }
+.status-na::before { content: "–"; }
+
+.mock td {
+    vertical-align: top;
+}
+
+.mock-label code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 0.15em 0.45em;
+    border-radius: 0.35em;
+    background: color-mix(in srgb, var(--accent) 10%, white);
+    color: var(--accent);
+}

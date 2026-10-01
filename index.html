@@ -16,6 +16,96 @@
                 Mozilla, BCD, ARIA-AT and Baseline so developers can build accessibility-supported experiences from the
                 start.
             </p>
+            <section id="preview">
+                <h2 class="section-heading">What the data could look like</h2>
+                <p>An illustration of the kind of data ACD will produce. <strong>The results below are made up.</strong></p>
+
+                <figure class="mock">
+                    <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>;
+                        not real data</figcaption>
+
+                    <div class="table-scroll" role="region" aria-label="Button ACD status" tabindex="0">
+                        <table>
+                            <caption>ACD status for the button element, by screen reader and browser</caption>
+                            <thead>
+                            <tr>
+                                <td></td>
+                                <th scope="col">Chrome <span class="version">140</span></th>
+                                <th scope="col">Edge <span class="version">140</span></th>
+                                <th scope="col">Firefox <span class="version">143</span></th>
+                                <th scope="col">Safari <span class="version">26</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">JAWS <span class="version">2025</span></th>
+                                <td><span class="status status-yes">Supported</span></td>
+                                <td><span class="status status-yes">Supported</span></td>
+                                <td>
+                                    <span class="status status-partial">Partiald</span>
+                                    <span class="cell-note">Browser fails</span>
+                                </td>
+                                <td><span class="status status-na">Not applicable</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NVDA <span class="version">2025.3</span></th>
+                                <td><span class="status status-partial">Partial</span>
+                                    <span class="cell-note">Screen-reader fails</span>
+                                </td>
+                                <td><span class="status status-partial">Partial</span>
+                                    <span class="cell-note">Screen-reader fails</span>
+                                </td>
+                                <td>
+                                    <span class="status status-no">Unsupported</span>
+                                    <span class="cell-note">Browser and Screen-reader fail</span>
+                                </td>
+                                <td><span class="status status-na">Not applicable</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">VoiceOver <span class="version">macOS 26</span></th>
+                                <td><span class="status status-untested">Not tested</span></td>
+                                <td><span class="status status-untested">Not tested</span></td>
+                                <td><span class="status status-untested">Not tested</span></td>
+                                <td>
+                                    <span class="status status-partial">Partial</span>
+                                    <span class="cell-note">Fails clipping</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <details class="mock-json">
+                        <summary>View as machine-readable data</summary>
+                        <pre><code>{
+                          "feature": "html.elements.button",
+                          "results": [
+                            { "screen_reader": { "name": "jaws", "version": "2025" },
+                              "browser": { "name": "chrome", "version": "140" },
+                              "status": "supported", "notes": [] },
+                            { "screen_reader": { "name": "jaws", "version": "2025" },
+                              "browser": { "name": "edge", "version": "140" },
+                              "status": "supported", "notes": [] },
+                            { "screen_reader": { "name": "jaws", "version": "2025" },
+                              "browser": { "name": "firefox", "version": "143" },
+                              "status": "partial", "notes": ["Fails on-blur"] },
+                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
+                              "browser": { "name": "chrome", "version": "140" },
+                              "status": "partial", "notes": [Screen-reader fails] },
+                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
+                              "browser": { "name": "edge", "version": "140" },
+                              "status": "not_tested", "notes": [] },
+                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
+                              "browser": { "name": "firefox", "version": "143" },
+                              "status": "not_tested", "notes": ["Browser fails"] },
+                            { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
+                              "browser": { "name": "safari", "version": "26" },
+                              "status": "partial", "notes": ["Browser fails"] }
+                          ]
+                        }</code></pre>
+                    </details>
+                </figure>
+            </section>
             <section id="plan">
                 <h2 class="section-heading">Our roadmap</h2>
                 <p class="section-intro">ACD is in early development, and we're looking for funding to bring it to life.</p>
