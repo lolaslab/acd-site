@@ -6,83 +6,82 @@
     <link rel="stylesheet" href="./css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-    <body>
-        <section class="container">
-            <header>
-                <p class="logo-word-mark">Accessibility Compatibility Data</p>
-                {% include "partials/_nav.njk" %}
-            </header>
-            <main>
-                <h1 class="title">Bringing accessibility support data to developer tools.</h1>
-                <p id="desc">For a long time accessibility support data has been separated
-                    from web feature support data, making it difficult for
-                    web developers to know which web features have accessibility gaps in
-                    either the screen reader, browser, or both. ACD aims to surface this
-                    data where developers already look for web feature support.
-                    We're working with Mozilla, BCD, ARIA-AT, and Baseline so
-                    developers can build accessibility-supported experiences
-                    from the start.
-                </p>
-            </main>
-        </section>
-        <section class="sec-container">
-            <section id="developers" class="sec-section">
-                <h2 class="section-heading">Developed By</h2>
-                <ul class="contributor-list">
-                    <li><img alt="lola's lab - lola odelola"
-                             src="images/lolas-lab.svg" class="contributor-logo"
-                             loading="lazy"></li>
-                    <li><img alt="Scaled Ally - cynthia shelly"
-                             src="images/scaled-a11y.png"
-                             class="contributor-logo" id="scaled-a11y"
-                             loading="lazy"></li>
-                </ul>
-            </section>
+    <body >
+        <header>
+            <p class="logo-word-mark">Accessibility Compatibility Data</p>
+            {% include "partials/_nav.njk" %}
+        </header>
+        <main class="container">
+            <h1 class="title">Bringing accessibility support data to developer tools.</h1>
+            <p id="desc">For a long time accessibility support data has been separated
+                from web feature support data, making it difficult for
+                web developers to know which web features have accessibility gaps in
+                either the screen reader, browser, or both. ACD aims to surface this
+                data where developers already look for web feature support.
+                We're working with Mozilla, BCD, ARIA-AT, and Baseline so
+                developers can build accessibility-supported experiences
+                from the start.
+            </p>
+            <section class="sec-container">
+                <section id="developers" class="sec-section">
+                    <h2 class="section-heading">Developed By</h2>
+                    <ul class="contributor-list">
+                        <li><img alt="lola's lab - lola odelola"
+                                 src="images/lolas-lab.svg" class="contributor-logo"
+                                 loading="lazy"></li>
+                        <li><img alt="Scaled Ally - cynthia shelly"
+                                 src="images/scaled-a11y.png"
+                                 class="contributor-logo" id="scaled-a11y"
+                                 loading="lazy"></li>
+                    </ul>
+                </section>
 
-            <section id="stakeholders" class="sec-section">
-                <h2 class="section-heading">Stakeholders</h2>
-                <ul class="contributor-list">
-                    <li>
-                        <img src="images/mdn.svg" alt="Mozilla Developer Network"
-                             class="contributor-logo">
-                    </li>
-                    <li><img src="images/owd.png" alt="Open Web Docs"
-                             class="contributor-logo"></li>
-                    <li id="aria-at-logo">ARIA-AT</li>
-                    <li><img src="images/baseline.svg" alt="Baseline"
-                             class="contributor-logo"></li>
-                    <li><img src="images/a11y.svg" alt="The A11y Project"
-                             class="contributor-logo"></li>
-                    <li><img src="images/tetra.svg" alt="Tetralogical"
-                             class="contributor-logo"></li>
-                </ul>
-            </section>
+                <section id="stakeholders" class="sec-section">
+                    <h2 class="section-heading">Stakeholders</h2>
+                    <ul class="contributor-list">
+                        <li>
+                            <img src="images/mdn.svg" alt="Mozilla Developer Network"
+                                 class="contributor-logo">
+                        </li>
+                        <li><img src="images/owd.png" alt="Open Web Docs"
+                                 class="contributor-logo"></li>
+                        <li id="aria-at-logo">ARIA-AT</li>
+                        <li><img src="images/baseline.svg" alt="Baseline"
+                                 class="contributor-logo"></li>
+                        <li><img src="images/a11y.svg" alt="The A11y Project"
+                                 class="contributor-logo"></li>
+                        <li><img src="images/tetra.svg" alt="Tetralogical"
+                                 class="contributor-logo"></li>
+                    </ul>
+                </section>
 
-            <section id="funders" class="sec-section">
-                <h2 class="section-heading">Funded By</h2>
-                <ul class="contributor-list">
-                    <li><img src="images/a11y.svg" alt="The A11y Project"
-                             class="contributor-logo" loading="lazy"></li>
-                    <li>
-                        <img src="images/mdn.svg" alt="Mozilla Developer Network"
-                             class="contributor-logo" loading="lazy">
-                    </li>
-                    <li>
-                        <img src="images/stf.svg" alt="Sovereign Tech Standards Fund"
-                             class="contributor-logo" loading="lazy">
-                    </li>
-                </ul>
-                <ul class="contributor-list">
-                    {% for funder in funders %}
-                    <li>
-                        <img src="{{ funder.avatar }}"
-                             alt="{{ funder.name }}"
-                             class="contributor-avatar" loading="lazy">
-                    </li>
-                    {% endfor %}
-                </ul>
+                <section id="funders" class="sec-section">
+                    <h2 class="section-heading">Funded By</h2>
+                    <ul class="contributor-list">
+                        <li><img src="images/a11y.svg" alt="The A11y Project"
+                                 class="contributor-logo" loading="lazy"></li>
+                        <li>
+                            <img src="images/mdn.svg" alt="Mozilla Developer Network"
+                                 class="contributor-logo" loading="lazy">
+                        </li>
+                        <li>
+                            <img src="images/stf.svg" alt="Sovereign Tech Standards Fund"
+                                 class="contributor-logo" loading="lazy">
+                        </li>
+                    </ul>
+                    <ul class="contributor-list">
+                        {% for funder in funders %}
+                        <li>
+                            <img src="{{ funder.avatar }}"
+                                 alt="{{ funder.name }}"
+                                 class="contributor-avatar" loading="lazy">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
             </section>
-        </section>
+        </main>
+
         {% include "partials/_footer.njk" %}
     </body>
 </html>
