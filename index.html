@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>ACD - Accessibility Compatibility Data</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/terms.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     <body>
         {% include "partials/_nav.njk" %}
         <main class="container">
             <h1 class="title">Bringing accessibility support data to developer tools</h1>
-            <p id="desc">Accessibility support data has always lived apart from browser compatibility data,
-                so developers can't easily see where a feature has gaps: in the browser, the screen reader, or
-                both. ACD brings that data to the places developers already check for browser support. We're
-                working with Mozilla, BCD, ARIA-AT and Baseline so developers can build
-                accessibility-supported experiences from the start.</p>
+            <p id="desc">Browser compatibility data doesn't tell you if a feature works with assistive technology.
+                ACD adds accessibility support data to the tools developers already use, working with Mozilla, BCD,
+                ARIA-AT and Baseline. Support data doesn't tell you whether a feature is accessible, it shows where
+                browsers and screen readers fall short, so you can plan workarounds.</p>
             <figure class="mock">
                 <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>
                     not real data</figcaption>
@@ -46,15 +46,15 @@
                             <th scope="row">NVDA <span class="version">2025.3</span></th>
                             <td>
                                 <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Screen-reader fails</span>
+                                <span class="cell-note">Screen reader fails</span>
                             </td>
                             <td>
                                 <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Screen-reader fails</span>
+                                <span class="cell-note">Screen reader fails</span>
                             </td>
                             <td>
                                 <span class="status status-no">Unsupported</span>
-                                <span class="cell-note">Browser and Screen-reader fail</span>
+                                <span class="cell-note">Browser and screen reader fail</span>
                             </td>
                             <td><span class="status status-na">Not applicable</span></td>
                         </tr>
@@ -71,6 +71,8 @@
                         </tbody>
                     </table>
                 </div>
+                <p class="mock-note">"Supported" doesn't mean "accessible". ACD shows you where support gaps are, so you can
+                    add fallbacks before users hit them.</p>
 
                 <details class="mock-json">
                     <summary>View as machine-readable data</summary>
@@ -91,13 +93,13 @@
       "status": "not_applicable", "notes": [] },
     { "screen_reader": { "name": "nvda", "version": "2025.3" },
       "browser": { "name": "chrome", "version": "140" },
-      "status": "partial", "notes": ["Screen-reader fails"] },
+      "status": "partial", "notes": ["Screen reader fails"] },
     { "screen_reader": { "name": "nvda", "version": "2025.3" },
       "browser": { "name": "edge", "version": "140" },
-      "status": "partial", "notes": ["Screen-reader fails"] },
+      "status": "partial", "notes": ["Screen reader fails"] },
     { "screen_reader": { "name": "nvda", "version": "2025.3" },
       "browser": { "name": "firefox", "version": "143" },
-      "status": "unsupported", "notes": ["Browser and Screen-reader fail"] },
+      "status": "unsupported", "notes": ["Browser and screen reader fail"] },
     { "screen_reader": { "name": "nvda", "version": "2025.3" },
       "browser": { "name": "safari", "version": "26" },
       "status": "not_applicable", "notes": [] },
@@ -122,32 +124,26 @@
                 <p>ACD is in early development but here's how we're going to get from tests to developer tools:</p>
                 <ol role="list" id="roadmap">
                     <li>
-                        <span>Expand test coverage</span>
-                        We're adding browser and screen reader tests for more web features,
-                        contributing to two established test suites: Web Platform Tests (WPT) and ARIA-AT.
-                        To start we're focusing on HTML web features in Chrome, Edge, Firefox and Safari,
-                        with JAWS, NVDA and VoiceOver.
+                        <span class="step-title">Expand test coverage</span>
+                        Add browser and screen-reader tests for HTML features to Web Platform Tests and ARIA-AT.
                     </li>
                     <li>
-                        <span>Compute a support status</span>
-                        The ACD collector will combine WPT and ARIA-AT results into an
-                        accessibility support status for each feature, published as machine-readable data.
+                        <span class="step-title">Compute a support status</span>
+                        Combine those results into a machine-readable support status for each feature.
                     </li>
                     <li>
-                        <span>Bring it to developer tools</span>
-                        ACD data can then be integrated into the tools developers already use to check
-                        browser support, such as MDN and Baseline.
+                        <span class="step-title">Bring it to developer tools</span>
+                        Get the data into the tools developers already use, like MDN and Baseline.
                     </li>
                 </ol>
             </section>
             <section id="support">
-                <h2 class="visually-hidden">Get Involved</h2>
                 <ul id="contribute-list" role="list">
                     <li id="contribute-tests">
+                        <h2 class="section-heading">Volunteer</h2>
                         <h3>Write Screen-Reader Tests</h3>
                         <p>Every test you write shows developers whether a feature really works with screen readers.
-                            Join the ARIA-AT Community Group to write and review the screen-reader
-                            tests behind ACD's data.</p>
+                            Join the ARIA-AT Community Group to write and review the tests behind ACD's data.</p>
                         <ul class="contribute-checklist" role="list">
                             <li>No screen-reader experience needed</li>
                             <li>A few hours a month</li>
@@ -156,8 +152,9 @@
                         <a href="https://www.w3.org/community/aria-at/" class="contribute-cta">Join the ARIA-AT community group</a>
                     </li>
                     <li id="contribute-fund">
-                        <h3>Fund the Project</h3>
-                        <p>ACD is in early development, and every contribution goes straight into the work.</p>
+                        <h2 class="section-heading">Fund</h2>
+                        <h3>Support the Work</h3>
+                        <p>Help developers find accessibility gaps before their users do.</p>
                         <ul class="contribute-checklist" role="list">
                             <li>Backfilling gaps in the test suites</li>
                             <li>Building the ACD collector</li>

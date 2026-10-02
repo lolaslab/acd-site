@@ -1,0 +1,35 @@
+{
+  "Accessibility Compatibility Dataset": {
+    "abbreviation": "ACD",
+    "definition": "The dataset which includes the accessibility interoperability support data for browser and assistive technology combinations."
+  },
+  "Accessibility Compatibility Dataset Collector": {
+    "abbreviation": "ACDC",
+    "definition": "The application that collects data from Web Platform Tests and ARIA-AT to produce the final dataset (ACD)."
+  },
+  "Baseline": {
+    "definition": "Identifies the availability of web platform features across popular browsers, including APIs, CSS properties, and JavaScript syntax. This project is owned by multiple stakeholders including Microsoft and Google."
+  },
+  "Browser Compatibility Data": {
+    "abbreviation": "BCD",
+    "definition": "The browser-compat-data project contains machine-readable browser (and JavaScript runtime) compatibility data for Web technologies, such as Web APIs, JavaScript features, CSS properties and more. BCD is used in web apps and software such as MDN Web Docs, CanIUse, Visual Studio Code, WebStorm and more."
+  },
+  "Web Platform Tests": {
+    "abbreviation": "WPT",
+    "definition": "The browser test suite which includes tests for every web feature."
+  },
+  "Assistive Technology": {
+    "abbreviation": "AT",
+    "definition": "Tools used to help disabled people navigate their devices and the web."
+  },
+  "HTML Accessibility API Mappings": {
+    "abbreviation": "HTML-AAM",
+    "definition": "HTML Accessibility API Mappings defines how user agents map HTML elements and attributes to platform accessibility application programming interfaces."
+  },
+  "ARIA-AT": {
+    "definition": "The assistive technology test suite which includes tests for patterns defined in the ARIA Authoring Practices Guide and some HTML-AAM defined elements."
+  },
+  "Accessibility-Supported": {
+    "definition": "The way that the web content technology is used must be supported by users' assistive technology (AT). This means that the way that the technology is used has been tested for interoperability with users' assistive technology in the human language(s) of the content. The web content technology must have accessibility-supported user agents that are available to users, the technology is supported natively in widely-distributed user agents that are also accessibility supported."
+  }
+}

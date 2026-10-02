@@ -102,6 +102,16 @@ a:hover {
     font-weight: 900;
 }
 
+/* Keyboard focus: inky ring on light backgrounds, alabaster on dark ones */
+:focus-visible {
+    outline: 3px solid var(--inky-black);
+    outline-offset: 3px;
+}
+
+:is(.mock, #contribute-list) :focus-visible {
+    outline-color: var(--alabaster-grey);
+}
+
 /* Hidden visually, still read by screen readers */
 .visually-hidden {
     position: absolute;
@@ -112,10 +122,57 @@ a:hover {
     white-space: nowrap;
 }
 
+/* Glossary tooltips */
+
+.term {
+    position: relative;
+}
+
+.term-trigger {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.2em;
+    cursor: help;
+}
+
+.term-tip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    width: max-content;
+    max-width: min(20rem, calc(100vw - 2 * var(--gutter)));
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background: var(--prussian-blue);
+    color: var(--alabaster-grey);
+    font-size: var(--text-s);
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.term-tip strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.term:is(:hover, :focus-within):not([data-dismissed]) .term-tip,
+.term[data-open] .term-tip {
+    display: block;
+}
+
 /* Header */
 
 #nav-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
     padding-block: 1.5rem;
@@ -150,6 +207,17 @@ a:hover {
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+}
+
+/* Small screens: logo on its own row, links below */
+@media (max-width: 40rem) {
+    #logo-word-mark {
+        flex-basis: 100%;
+    }
+
+    .nav-list-item {
+        font-size: var(--text-m);
+    }
 }
 
 .logo-letter {
@@ -209,8 +277,9 @@ a:hover {
     margin-top: 5rem;
 }
 
-#plan .section-heading {
-    margin-bottom: 0.75rem;
+/* Labels that lead straight into their content */
+#plan .section-heading, #contribute-list .section-heading {
+    margin: 0 0 0.75rem;
 }
 
 #roadmap {
@@ -245,7 +314,7 @@ a:hover {
     color: var(--dusk-blue);
 }
 
-#roadmap li span {
+.step-title {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -422,6 +491,12 @@ a:hover {
 .status-no::before      { content: "✕"; }
 .status-na              { color: var(--alabaster-grey); border: 1px dashed var(--lav-grey); }
 .status-na::before      { content: "–"; }
+
+.mock-note {
+    margin: 1rem 0 0;
+    font-size: var(--text-s);
+    line-height: 1.5;
+}
 
 .mock-json {
     margin-top: 1.5rem;
