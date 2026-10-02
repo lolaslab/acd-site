@@ -4,24 +4,14 @@ const ENDPOINTS = [
     "https://opencollective.com/lolas-lab/sponsors.svg?width=600&button=false",
 ];
 
-// params: svg String
-// return: attribute Object
-// Return attribute object parsed from SVG element
-function parseAttrs(svg) {
-    const attrs = {};
-    const attrRe = /([\w:-]+)="([^"]*)"/g;
-    let match;
-    while (match = attrRe.exec(svg)) {
-        attrs[match[1]] = match[2];
-    }
-    console.log(attrs)
-    return attrs;
+// Parse `key="value"` pairs from an SVG tag's attribute string into an object.
+function parseAttrs(str) {
+    return Object.fromEntries(
+        [...str.matchAll(/([\w:-]+)="([^"]*)"/g)].map(([, key, value]) => [key, value])
+    );
 }
 
-// param: url String
-// return: avatars Array of Objects
-// Iterate through SVG items in given endpoint and return
-// avatar details.
+// Fetch an Open Collective SVG and return the { name, avatar } of each backer in it.
 async function fetchAvatars(url) {
     const res = await fetch(url);
     if (!res.ok) {
@@ -29,32 +19,20 @@ async function fetchAvatars(url) {
         return [];
     }
     const svg = await res.text();
-    const avatars = [];
-    const tagRegex = /<a\s+([^>]*)>/g;
-    let match;
-    while (match = tagRegex.exec(svg)) {
-        const attrs = parseAttrs(match[1]);
-        if (attrs.class !== "opencollective-svg" || !attrs.id) continue;
-        avatars.push({
-            name: attrs.id.replace(/-/g, " "),
-            avatar: `https://images.opencollective.com/${attrs.id}/avatar/64.png`,
-        });
-    }
-    return avatars;
+    return [...svg.matchAll(/<a\s+([^>]*)>/g)]
+        .map(([, attrs]) => parseAttrs(attrs))
+        .filter((attrs) => attrs.class === "opencollective-svg" && attrs.id)
+        .map(({ id }) => ({
+            name: id.replace(/-/g, " "),
+            avatar: `https://images.opencollective.com/${id}/avatar/64.png`,
+        }));
 }
 
 module.exports = async function () {
     const results = await Promise.allSettled(ENDPOINTS.map(fetchAvatars));
-
-    const funders = [];
-    for (const result of results) {
-        if (result.status !== "fulfilled") {
-            console.warn("funders data: fetch failed", result.reason);
-            continue;
-        }
-        for (const avatar of result.value) {
-            funders.push(avatar);
-        }
-    }
-    return funders;
+    return results.flatMap((result) => {
+        if (result.status === "fulfilled") return result.value;
+        console.warn("funders data: fetch failed", result.reason);
+        return [];
+    });
 };

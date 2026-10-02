@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
 
     // Allow draft blog posts
     eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
-        if(data.draft && (process.env.ELEVENTY_RUN_MODE === "build" || process.env.ELEVENTY_RUN_MODE === "serve")) {
+        if (data.draft && ["build", "serve"].includes(process.env.ELEVENTY_RUN_MODE)) {
             return false;
         }
     });
@@ -17,18 +17,9 @@ module.exports = function(eleventyConfig) {
 
     // Newest date in the collection
     eleventyConfig.addFilter('collectionLastUpdatedDate', (collection) => {
-        if (!collection || !collection.length) {
-            throw new Error(
-                'Collection is empty in collectionLastUpdatedDate filter.'
-            );
+        if (!collection?.length) {
+            throw new Error('Collection is empty in collectionLastUpdatedDate filter.');
         }
-
-        return rfc822Date(
-            new Date(
-                Math.max(...collection.map((item) => {
-                    return item.date;
-                }))
-            )
-        );
+        return rfc822Date(new Date(Math.max(...collection.map((item) => item.date))));
     });
 };

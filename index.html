@@ -6,109 +6,119 @@
     <link rel="stylesheet" href="./css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-    <body >
+    <body>
         {% include "partials/_nav.njk" %}
         <main class="container">
             <h1 class="title">Bringing accessibility support data to developer tools</h1>
-            <p id="desc">Accessibility support data has always lived apart from browser compatibility data, so
-                developers can't easily see where a feature has gaps: in the browser, the screen reader, or both.
-                ACD brings that data to the places developers already check for browser support. We're working with
-                Mozilla, BCD, ARIA-AT and Baseline so developers can build accessibility-supported experiences from the
-                start.
-            </p>
-            <section id="preview">
-                <h2 class="section-heading">What the data could look like</h2>
-                <p>An illustration of the kind of data ACD will produce. <strong>The results below are made up.</strong></p>
+            <p id="desc">Accessibility support data has always lived apart from browser compatibility data,
+                so developers can't easily see where a feature has gaps: in the browser, the screen reader, or
+                both. ACD brings that data to the places developers already check for browser support. We're
+                working with Mozilla, BCD, ARIA-AT and Baseline so developers can build
+                accessibility-supported experiences from the start.</p>
+            <figure class="mock">
+                <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>
+                    not real data</figcaption>
 
-                <figure class="mock">
-                    <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>;
-                        not real data</figcaption>
+                <div class="table-scroll" role="region" aria-label="Button ACD status" tabindex="0">
+                    <table>
+                        <caption class="visually-hidden">ACD status for the button element, by screen reader and browser</caption>
+                        <thead>
+                        <tr>
+                            <td></td>
+                            <th scope="col">Chrome <span class="version">140</span></th>
+                            <th scope="col">Edge <span class="version">140</span></th>
+                            <th scope="col">Firefox <span class="version">143</span></th>
+                            <th scope="col">Safari <span class="version">26</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">JAWS <span class="version">2025</span></th>
+                            <td><span class="status status-yes">Supported</span></td>
+                            <td><span class="status status-yes">Supported</span></td>
+                            <td>
+                                <span class="status status-partial">Partial</span>
+                                <span class="cell-note">Browser fails</span>
+                            </td>
+                            <td><span class="status status-na">Not applicable</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">NVDA <span class="version">2025.3</span></th>
+                            <td>
+                                <span class="status status-partial">Partial</span>
+                                <span class="cell-note">Screen-reader fails</span>
+                            </td>
+                            <td>
+                                <span class="status status-partial">Partial</span>
+                                <span class="cell-note">Screen-reader fails</span>
+                            </td>
+                            <td>
+                                <span class="status status-no">Unsupported</span>
+                                <span class="cell-note">Browser and Screen-reader fail</span>
+                            </td>
+                            <td><span class="status status-na">Not applicable</span></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">VoiceOver <span class="version">macOS 26</span></th>
+                            <td><span class="status status-untested">Not tested</span></td>
+                            <td><span class="status status-untested">Not tested</span></td>
+                            <td><span class="status status-untested">Not tested</span></td>
+                            <td>
+                                <span class="status status-partial">Partial</span>
+                                <span class="cell-note">Browser fails</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <div class="table-scroll" role="region" aria-label="Button ACD status" tabindex="0">
-                        <table>
-                            <caption>ACD status for the button element, by screen reader and browser</caption>
-                            <thead>
-                            <tr>
-                                <td></td>
-                                <th scope="col">Chrome <span class="version">140</span></th>
-                                <th scope="col">Edge <span class="version">140</span></th>
-                                <th scope="col">Firefox <span class="version">143</span></th>
-                                <th scope="col">Safari <span class="version">26</span></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">JAWS <span class="version">2025</span></th>
-                                <td><span class="status status-yes">Supported</span></td>
-                                <td><span class="status status-yes">Supported</span></td>
-                                <td>
-                                    <span class="status status-partial">Partiald</span>
-                                    <span class="cell-note">Browser fails</span>
-                                </td>
-                                <td><span class="status status-na">Not applicable</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">NVDA <span class="version">2025.3</span></th>
-                                <td><span class="status status-partial">Partial</span>
-                                    <span class="cell-note">Screen-reader fails</span>
-                                </td>
-                                <td><span class="status status-partial">Partial</span>
-                                    <span class="cell-note">Screen-reader fails</span>
-                                </td>
-                                <td>
-                                    <span class="status status-no">Unsupported</span>
-                                    <span class="cell-note">Browser and Screen-reader fail</span>
-                                </td>
-                                <td><span class="status status-na">Not applicable</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">VoiceOver <span class="version">macOS 26</span></th>
-                                <td><span class="status status-untested">Not tested</span></td>
-                                <td><span class="status status-untested">Not tested</span></td>
-                                <td><span class="status status-untested">Not tested</span></td>
-                                <td>
-                                    <span class="status status-partial">Partial</span>
-                                    <span class="cell-note">Fails clipping</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <details class="mock-json">
-                        <summary>View as machine-readable data</summary>
-                        <pre><code>{
-                          "feature": "html.elements.button",
-                          "results": [
-                            { "screen_reader": { "name": "jaws", "version": "2025" },
-                              "browser": { "name": "chrome", "version": "140" },
-                              "status": "supported", "notes": [] },
-                            { "screen_reader": { "name": "jaws", "version": "2025" },
-                              "browser": { "name": "edge", "version": "140" },
-                              "status": "supported", "notes": [] },
-                            { "screen_reader": { "name": "jaws", "version": "2025" },
-                              "browser": { "name": "firefox", "version": "143" },
-                              "status": "partial", "notes": ["Fails on-blur"] },
-                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
-                              "browser": { "name": "chrome", "version": "140" },
-                              "status": "partial", "notes": [Screen-reader fails] },
-                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
-                              "browser": { "name": "edge", "version": "140" },
-                              "status": "not_tested", "notes": [] },
-                            { "screen_reader": { "name": "nvda", "version": "2025.3" },
-                              "browser": { "name": "firefox", "version": "143" },
-                              "status": "not_tested", "notes": ["Browser fails"] },
-                            { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
-                              "browser": { "name": "safari", "version": "26" },
-                              "status": "partial", "notes": ["Browser fails"] }
-                          ]
-                        }</code></pre>
-                    </details>
-                </figure>
-            </section>
+                <details class="mock-json">
+                    <summary>View as machine-readable data</summary>
+                    <pre><code>{
+  "feature": "html.elements.button",
+  "results": [
+    { "screen_reader": { "name": "jaws", "version": "2025" },
+      "browser": { "name": "chrome", "version": "140" },
+      "status": "supported", "notes": [] },
+    { "screen_reader": { "name": "jaws", "version": "2025" },
+      "browser": { "name": "edge", "version": "140" },
+      "status": "supported", "notes": [] },
+    { "screen_reader": { "name": "jaws", "version": "2025" },
+      "browser": { "name": "firefox", "version": "143" },
+      "status": "partial", "notes": ["Browser fails"] },
+    { "screen_reader": { "name": "jaws", "version": "2025" },
+      "browser": { "name": "safari", "version": "26" },
+      "status": "not_applicable", "notes": [] },
+    { "screen_reader": { "name": "nvda", "version": "2025.3" },
+      "browser": { "name": "chrome", "version": "140" },
+      "status": "partial", "notes": ["Screen-reader fails"] },
+    { "screen_reader": { "name": "nvda", "version": "2025.3" },
+      "browser": { "name": "edge", "version": "140" },
+      "status": "partial", "notes": ["Screen-reader fails"] },
+    { "screen_reader": { "name": "nvda", "version": "2025.3" },
+      "browser": { "name": "firefox", "version": "143" },
+      "status": "unsupported", "notes": ["Browser and Screen-reader fail"] },
+    { "screen_reader": { "name": "nvda", "version": "2025.3" },
+      "browser": { "name": "safari", "version": "26" },
+      "status": "not_applicable", "notes": [] },
+    { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
+      "browser": { "name": "chrome", "version": "140" },
+      "status": "not_tested", "notes": [] },
+    { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
+      "browser": { "name": "edge", "version": "140" },
+      "status": "not_tested", "notes": [] },
+    { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
+      "browser": { "name": "firefox", "version": "143" },
+      "status": "not_tested", "notes": [] },
+    { "screen_reader": { "name": "voiceover", "version": "macOS 26" },
+      "browser": { "name": "safari", "version": "26" },
+      "status": "partial", "notes": ["Browser fails"] }
+  ]
+}</code></pre>
+                </details>
+            </figure>
             <section id="plan">
-                <h2 class="section-heading">Our roadmap</h2>
-                <p class="section-intro">ACD is in early development, and we're looking for funding to bring it to life.</p>
+                <h2 class="section-title">Our Roadmap</h2>
                 <ol role="list" id="roadmap">
                     <li>
                         <span>Expand test coverage</span>
@@ -128,77 +138,64 @@
                         browser support, such as MDN and Baseline.
                     </li>
                 </ol>
-                <p>Help us get there. <a href="#">Support the work</a></p>
             </section>
             <section id="support">
-                <h2 class="section-heading">Get involved</h2>
-                <p class="section-intro">There are two main ways to support ACD</p>
+                <h2 class="visually-hidden">Get Involved</h2>
                 <ul id="contribute-list" role="list">
                     <li id="contribute-tests">
-                        <h3>Write ARIA-AT tests</h3>
-                        <p>ACD's screen reader data comes from ARIA-AT which is owned by the ARIA-AT Community Group.
-                            Join the group to help write and review screen-reader tests. You don't
-                            have to be a screen-reader user to write tests!</p>
+                        <h3>Write Screen-Reader Tests</h3>
+                        <p>Every test you write shows developers whether a feature really works with screen readers.
+                            Join the ARIA-AT Community Group to write and review the screen-reader
+                            tests behind ACD's data.</p>
+                        <ul class="contribute-checklist" role="list">
+                            <li>No screen-reader experience needed</li>
+                            <li>A few hours a month</li>
+                            <li>Guided by the community group</li>
+                        </ul>
                         <p class="contribute-links">
-                            <a href="https://www.w3.org/community/aria-at/">Join the ARAI-AT community group</a>
+                            <a href="https://www.w3.org/community/aria-at/">Join the ARIA-AT community group</a>
                             <a href="https://github.com/w3c/aria-at">ARIA-AT on GitHub</a>
                         </p>
                     </li>
                     <li id="contribute-fund">
-                        <h3>Fund the project</h3>
-                        <p>ACD is in early development. Funding helps us expand test coverage
-                            and bring accessibility support data to developer tools.</p>
+                        <h3>Fund the Project</h3>
+                        <p>ACD is in early development, and every contribution goes straight into the work.</p>
+                        <ul class="contribute-checklist" role="list">
+                            <li>Backfilling gaps in the test suites</li>
+                            <li>Building the ACD collector</li>
+                            <li>Getting the data into developer tools</li>
+                        </ul>
                         <p class="contribute-links">
-                            <a href="https://opencollective.com/acd">Support on Open Collective</a>
+                            <a href="https://opencollective.com/acd">Back ACD on Open Collective</a>
                         </p>
                     </li>
                 </ul>
             </section>
-            <section class="sec-container">
-                <section id="developers" class="sec-section">
-                    <h2 class="section-heading">Developed by</h2>
-                    <ul class="contributor-list">
-                        <li><img alt="lola's lab"
-                                 src="images/lolas-lab.svg" class="contributor-logo"
-                                 loading="lazy"></li>
-                        <li><img alt="Scaled Ally"
-                                 src="images/scaled-a11y.png"
-                                 class="contributor-logo" id="scaled-a11y"
-                                 loading="lazy"></li>
-                    </ul>
-                </section>
-
-                <section id="funders" class="sec-section">
-                    <h2 class="section-heading">Supported by</h2>
-                    <ul class="contributor-list">
-                        <li><img src="images/a11y.svg" alt="The A11y Project"
-                                 class="contributor-logo" loading="lazy"></li>
-                        <li>
-                            <img src="images/mdn.svg" alt="Mozilla Web Docs"
-                                 class="contributor-logo" loading="lazy">
-                        </li>
-                        <li>
-                            <img src="images/stf.svg" alt="Sovereign Tech Standards Fund"
-                                 class="contributor-logo" loading="lazy">
-                        </li>
-<!--                        <li><img src="images/owd.png" alt="Open Web Docs"-->
-<!--                                 class="contributor-logo"></li>-->
-<!--                        <li id="aria-at-logo">ARIA-AT</li>-->
-<!--                        <li><img src="images/baseline.svg" alt="Baseline"-->
-<!--                                 class="contributor-logo"></li>-->
-<!--                        <li><img src="images/tetra.svg" alt="Tetralogical"-->
-<!--                                 class="contributor-logo"></li>-->
-                    </ul>
-                    <ul class="contributor-list">
-                        {% for funder in funders %}
-                        <li>
-                            <img src="{{ funder.avatar }}"
-                                 alt="{{ funder.name }}"
-                                 class="contributor-avatar" loading="lazy">
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </section>
+            <section id="developers">
+                <h2 class="section-heading">Developed by</h2>
+                <ul class="contributor-list">
+                    <li><img src="images/lolas-lab.svg" alt="lola's lab" class="contributor-logo" loading="lazy"></li>
+                    <li><img src="images/scaled-a11y.png" alt="Scaled Ally" class="contributor-logo" id="scaled-a11y" loading="lazy"></li>
+                </ul>
+            </section>
+            <section id="funders">
+                <h2 class="section-heading">Supported by</h2>
+                <ul class="contributor-list">
+                    <li><img src="images/a11y.svg" alt="The A11y Project" class="contributor-logo" loading="lazy"></li>
+                    <li><img src="images/mdn.svg" alt="Mozilla Web Docs" class="contributor-logo" loading="lazy"></li>
+                    <li><img src="images/stf.svg" alt="Sovereign Tech Standards Fund" class="contributor-logo" loading="lazy"></li>
+                    <!--
+                    <li><img src="images/owd.png" alt="Open Web Docs" class="contributor-logo"></li>
+                    <li id="aria-at-logo">ARIA-AT</li>
+                    <li><img src="images/baseline.svg" alt="Baseline" class="contributor-logo"></li>
+                    <li><img src="images/tetra.svg" alt="Tetralogical" class="contributor-logo"></li>
+                    -->
+                </ul>
+                <ul class="contributor-list">
+                    {% for funder in funders %}
+                    <li><img src="{{ funder.avatar }}" alt="{{ funder.name }}" class="contributor-avatar" loading="lazy"></li>
+                    {% endfor %}
+                </ul>
             </section>
         </main>
         {% include "partials/_footer.njk" %}
