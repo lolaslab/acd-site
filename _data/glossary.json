@@ -27,7 +27,7 @@
     "definition": "HTML Accessibility API Mappings defines how user agents map HTML elements and attributes to platform accessibility application programming interfaces."
   },
   "ARIA-AT": {
-    "definition": "The assistive technology test suite which includes tests for patterns defined in the ARIA Authoring Practices Guide and some HTML-AAM defined elements."
+    "definition": "The assistive technology test suite which includes tests for patterns defined in the ARIA Authoring Practices Guide and some HTML web-features."
   },
   "Accessibility-Supported": {
     "definition": "The way that the web content technology is used must be supported by users' assistive technology (AT). This means that the way that the technology is used has been tested for interoperability with users' assistive technology in the human language(s) of the content. The web content technology must have accessibility-supported user agents that are available to users, the technology is supported natively in widely-distributed user agents that are also accessibility supported."

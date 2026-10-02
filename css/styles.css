@@ -252,6 +252,7 @@ a:hover {
 }
 
 :is(#developers, #funders) .section-heading {
+    margin-bottom: 3rem;
     text-align: center;
 }
 
@@ -401,6 +402,12 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    gap: 2.5rem 4rem;
+}
+
+/* Avatars sit closer together than logos */
+.contributor-list:has(.contributor-avatar) {
     gap: 1rem;
 }
 

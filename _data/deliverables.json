@@ -1,7 +1,7 @@
 [
   {
     "id": "D1",
-    "title": "HTML-AAM WPT tests that can be consumed by ACD",
+    "title": "HTML web-features WPT tests that can be consumed by ACD",
     "objective": "Fill in test gaps in WPT.",
     "cost": 25000,
     "criteria": [
@@ -9,7 +9,7 @@
         "items": [
           [
             "AC1.1",
-            "All tests identified for HTML-AAM as requiring modification have been updated accordingly."
+            "All tests identified for HTML web-features as requiring modification have been updated accordingly."
           ],
           [
             "AC1.2",
@@ -29,8 +29,8 @@
   },
   {
     "id": "D2",
-    "title": "HTML-AAM ARIA-AT tests",
-    "objective": "Fill in test gaps in ARIA-AT. We will expand the ARIA-AT test suite to include tests for the HTML-AAM specification.",
+    "title": "HTML web-features ARIA-AT tests",
+    "objective": "Fill in test gaps in ARIA-AT. We will expand the ARIA-AT test suite to include tests for HTML web-features.",
     "fundedBy": "Sovereign Tech Fund"
   },
   {
@@ -55,7 +55,7 @@
           ],
           [
             "AC3.4",
-            "The API returns test results in the agreed data format for all ARIA-AT tests relevant to HTML-AAM elements."
+            "The API returns test results in the agreed data format for all ARIA-AT tests relevant to HTML web-features."
           ],
           [
             "AC3.5",
@@ -154,7 +154,7 @@
         "items": [
           [
             "AC4.3.1",
-            "The JSON output includes a support status value for each HTML-AAM element."
+            "The JSON output includes a support status value for each HTML web-feature."
           ],
           [
             "AC4.3.2",
