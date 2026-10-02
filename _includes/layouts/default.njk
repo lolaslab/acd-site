@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>{{ title }}</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/terms.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body class="container">
-        {% include "partials/_nav.njk"  %}
-      <main>
-        {{ content | safe }}
-      </main>
+    <body>
+        {% include "partials/_nav.njk" %}
+        <main class="container">
+            {{ content | safe }}
+        </main>
         {% include "partials/_footer.njk" %}
     </body>
 </html>

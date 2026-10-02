@@ -1,0 +1,183 @@
+[
+  {
+    "id": "D1",
+    "title": "HTML-AAM WPT tests that can be consumed by ACD",
+    "objective": "Fill in test gaps in WPT.",
+    "cost": 25000,
+    "criteria": [
+      {
+        "items": [
+          [
+            "AC1.1",
+            "All tests identified for HTML-AAM as requiring modification have been updated accordingly."
+          ],
+          [
+            "AC1.2",
+            "New tests have been written for as many gaps identified as feasible within project scope, with any unfilled gaps documented and justified by the ACD team."
+          ],
+          [
+            "AC1.3",
+            "All new and modified tests have been merged into WPT upstream."
+          ],
+          [
+            "AC1.4",
+            "The set of new and modified tests is reviewed and approved by the ACD team."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "D2",
+    "title": "HTML-AAM ARIA-AT tests",
+    "objective": "Fill in test gaps in ARIA-AT. We will expand the ARIA-AT test suite to include tests for the HTML-AAM specification.",
+    "fundedBy": "Sovereign Tech Fund"
+  },
+  {
+    "id": "D3",
+    "title": "Create API for ARIA-AT to receive test results",
+    "objective": "Pull in test results from ARIA-AT support data.",
+    "cost": 45900,
+    "criteria": [
+      {
+        "items": [
+          [
+            "AC3.1",
+            "The ARIA-AT app doesn’t have technical debt blocking the implementation of the API."
+          ],
+          [
+            "AC3.2",
+            "The ARIA-AT team and ACD team have jointly agreed on and documented the data format that the API will expose, including all fields required by the ACDC."
+          ],
+          [
+            "AC3.3",
+            "The API is publicly accessible and does not require authentication to retrieve test results."
+          ],
+          [
+            "AC3.4",
+            "The API returns test results in the agreed data format for all ARIA-AT tests relevant to HTML-AAM elements."
+          ],
+          [
+            "AC3.5",
+            "The API has been implemented in the ARIA-AT codebase and merged upstream with approval from the ARIA-AT team."
+          ],
+          [
+            "AC3.6",
+            "The ACDC can successfully retrieve and process results from the API."
+          ],
+          [
+            "AC3.7",
+            "The API and its documentation have been reviewed and approved by both the ARIA-AT team and the ACD team."
+          ],
+          [
+            "AC3.8",
+            "Documentation is published, including technical spec for API implementation and developer docs for API usage."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "D4",
+    "title": "ACD Collector",
+    "objective": "Build the collector in JavaScript which will publish the support information as machine-readable data for downstream consumers.",
+    "cost": 59100,
+    "criteria": [
+      {
+        "heading": "M4.1: Decision framework for WPT",
+        "items": [
+          [
+            "AC4.1.1",
+            "The framework defines explicit mapping rules for all WPT results supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported, and Unknown."
+          ],
+          [
+            "AC4.1.2",
+            "The framework specifies how to handle missing or absent test data, and maps that condition to an explicit support status value."
+          ],
+          [
+            "AC4.1.3",
+            "The framework accounts for browser-specific results, such that support status can be determined independently per browser."
+          ],
+          [
+            "AC4.1.4",
+            "The framework is documented in a written document that is human-readable and reviewable by stakeholders."
+          ],
+          [
+            "AC4.1.5",
+            "The framework is implemented as a JavaScript algorithm that the ACD Collector can execute directly to produce a support status value from incoming WPT data."
+          ],
+          [
+            "AC4.1.6",
+            "The written document and algorithm are consistent with each other."
+          ],
+          [
+            "AC4.1.7",
+            "The framework has been reviewed and approved by the ACD team."
+          ]
+        ]
+      },
+      {
+        "heading": "M4.2: Decision framework for ARIA-AT",
+        "items": [
+          [
+            "AC4.2.1",
+            "The framework defines explicit mapping rules for all ARIA-AT data inputs supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported, and Unknown."
+          ],
+          [
+            "AC4.2.2",
+            "The framework specifies how to handle missing or absent test data, and maps that condition to an explicit support status value."
+          ],
+          [
+            "AC4.2.3",
+            "The framework accounts for AT-specific results, such that support status can be determined independently per AT."
+          ],
+          [
+            "AC4.2.4",
+            "The framework is documented in a written document that is human-readable and reviewable by stakeholders."
+          ],
+          [
+            "AC4.2.5",
+            "The framework is implemented as a JavaScript algorithm that the ACD Collector can execute directly to produce a support status value from incoming ARIA-AT data."
+          ],
+          [
+            "AC4.2.6",
+            "The written document and algorithm are consistent with each other."
+          ],
+          [
+            "AC4.2.7",
+            "The framework has been reviewed and approved by the ACD team."
+          ]
+        ]
+      },
+      {
+        "heading": "M4.3: Machine-readable data",
+        "items": [
+          [
+            "AC4.3.1",
+            "The JSON output includes a support status value for each HTML-AAM element."
+          ],
+          [
+            "AC4.3.2",
+            "The JSON output includes support status broken down per browser/assistive technology combination."
+          ],
+          [
+            "AC4.3.3",
+            "The JSON output is versioned."
+          ],
+          [
+            "AC4.3.4",
+            "The JSON output is publicly accessible."
+          ],
+          [
+            "AC4.3.5",
+            "The JSON output is structured so that it can be consumed by MDN, Can I Use, and Baseline."
+          ],
+          [
+            "AC4.3.6",
+            "The JSON output has been validated against the agreed ACD schema."
+          ]
+        ]
+      }
+    ]
+  }
+]

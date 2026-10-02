@@ -1,0 +1,217 @@
+---
+layout: layouts/default.njk
+title: ACD - Funding proposal
+---
+{%- assign total = 0 -%}
+{%- assign open = 0 -%}
+{%- for d in deliverables -%}
+    {%- if d.cost -%}{%- assign total = total | plus: d.cost -%}{%- endif -%}
+    {%- unless d.fundedBy -%}{%- assign open = open | plus: 1 -%}{%- endunless -%}
+{%- endfor -%}
+<article class="proposal">
+    <h1 class="title">Funding the ACD MVP</h1>
+    <p id="desc">ACD will turn browser and assistive technology test results into accessibility support data
+        that developer tools can use. This proposal sets out what the first version needs, what it costs, and how your
+        organisation can fund it.</p>
+
+    <section class="proposal-summary" aria-label="Summary">
+        <dl class="proposal-stats">
+            <div><dt>Total cost</dt><dd>{{ total | usd }}</dd></div>
+            <div><dt>Deliverables seeking funding</dt><dd>{{ open }}</dd></div>
+            <div><dt>Fund</dt><dd>One deliverable or the whole project</dd></div>
+            <div><dt>Status</dt><dd>In Progress</dd></div>
+        </dl>
+        <div class="proposal-actions">
+            <a href="#contact" class="cta">Fund this work</a>
+            <button type="button" class="proposal-print" data-print>Download as PDF</button>
+        </div>
+    </section>
+
+    <nav class="proposal-toc" aria-label="Contents">
+        <h2 class="section-heading">Contents</h2>
+        <ol role="list">
+            <li><a href="#problem">The problem</a></li>
+            <li><a href="#demand">Why it matters now</a></li>
+            <li><a href="#deliverables">Deliverables</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#scope">Scope and administration</a></li>
+            <li><a href="#contact">Fund the work</a></li>
+            <li><a href="#funders">Previous and current funders</a></li>
+        </ol>
+    </nav>
+
+    <section id="problem">
+        <h2 class="section-heading">The problem</h2>
+        <p>The aim of the ACD project is to produce web accessibility data for use in developer tooling, documentation,
+            and AI skills and training.</p>
+        <p>Over the last year, a series of workshops proved the need for interoperable accessibility support data. We
+            built a demo of the ACDC that pulls in results from WPT and an accessibility dataset source (currently
+            provided by Tetralogical, but subject to change) and computes support data from the combined results.</p>
+        <p>That data isn't usable yet. To understand how best to integrate with developer tools, we need real support
+            data for HTML-AAM features: complete browser and AT tests, a support status computed from their results,
+            and machine-readable output. The owners of Baseline and BCD have confirmed this work is a crucial precursor
+            to integrating with both.</p>
+    </section>
+
+    <section id="demand">
+        <h2 class="section-heading">Why it matters now</h2>
+        <p>Both BCD and Baseline have put accessibility data on their 2026 roadmaps, and Baseline’s governing group
+            has said it is “hoping to fill that gap by collaborating with Lola Odelola”
+            (<a href="http://piccalil.li/blog/perfecting-baseline/">Perfecting Baseline</a>).</p>
+        <p class="proposal-stat"><strong>30%</strong> of web developers in our May 2026 MDN survey believe Baseline
+            “Widely available” includes accessibility. It doesn't.</p>
+        <ul class="quotes" role="list">
+            <li>
+                <figure>
+                    <blockquote><p>[ACD is] the kind of data that could one day complement Baseline.</p></blockquote>
+                    <figcaption>Samsung Internet Developer Relations ·
+                        <a href="http://medium.com/samsung-internet-dev/baseline-a-feature-adoption-strategy-for-the-web-3a2e1efbb0b8">Baseline: a feature adoption strategy for the web</a></figcaption>
+                </figure>
+            </li>
+            <li>
+                <figure>
+                    <blockquote><p>[ACD is] a larger accessibility effort than Baseline offers.</p></blockquote>
+                    <figcaption>Sara Soueidan and Adrian Roselli, accessibility consultants</figcaption>
+                </figure>
+            </li>
+        </ul>
+        <p>Developers feel the gap too. Michael Fürstenberg wrote that it’s hard to tell whether an issue is a browser
+            problem or an AT problem, and asked for “an up to date list of supported aria attributes per browser.”</p>
+        <p>Adrian Roselli’s widely read post,
+            <a href="http://adrianroselli.com/2023/12/baseline-does-not-really-cover-baseline-support.html">Baseline Does Not Really Cover Baseline Support</a>,
+            documents that Baseline excludes accessibility support entirely and encourages readers to support ACD.
+            Interest reaches beyond English-speaking countries:
+            <a href="https://www.mitsue.co.jp/knowledge/blog/a11y/202507/08_1330.html">Mitsue-Links</a>, a Japanese
+            consultancy, has publicly encouraged support for ACD. ACD is also listed in the W3C ARIA Working Group’s
+            repository as a known web platform accessibility testing initiative, alongside ARIA-AT, WebDriver and
+            Acacia.</p>
+    </section>
+
+    <section id="deliverables">
+        <h2 class="section-heading">Deliverables</h2>
+        <p>Deliverables are worked in priority order, as funding allows. Each has a fixed price and is complete once all
+            its acceptance criteria are met.</p>
+        <ol class="card-grid" role="list">
+            {%- for d in deliverables %}
+            <li class="card">
+                <span class="card-number">{{ d.id }}</span>
+                <h3 class="step-title">{{ d.title }}</h3>
+                {%- if d.fundedBy %}
+                <p class="deliverable-status deliverable-status-funded">Funded by {{ d.fundedBy }} · in progress</p>
+                {%- else %}
+                <p class="deliverable-status">Seeking funding · {{ d.cost | usd }}</p>
+                {%- endif %}
+                <p>{{ d.objective }}</p>
+                {%- if d.criteria %}
+                <details>
+                    <summary>Acceptance criteria</summary>
+                    {%- for group in d.criteria %}
+                    {%- if group.heading %}
+                    <h4>{{ group.heading }}</h4>
+                    {%- endif %}
+                    <ul role="list">
+                        {%- for item in group.items %}
+                        <li><strong>{{ item[0] }}</strong> {{ item[1] }}</li>
+                        {%- endfor %}
+                    </ul>
+                    {%- endfor %}
+                </details>
+                {%- endif %}
+            </li>
+            {%- endfor %}
+        </ol>
+    </section>
+
+    <section id="team">
+        <h2 class="section-heading">Team</h2>
+        <p>This work is led by Lola Odelola and Cynthia Shelly.</p>
+        <ul class="profiles" role="list">
+            <li>
+                <h3>Lola Odelola</h3>
+                <p class="profile-role">Founder, Lola’s Lab · W3C TAG co-chair</p>
+                <p>ACD began at Lola’s Lab. She’s a W3C ARIA Working Group invited expert and previously led the Web
+                    Platform Program at Bocoup, including its work on ARIA-AT, WebDriver BiDi and BCD. She now
+                    contributes to the Servo browser and the Core-AAM and WebDriver specifications.</p>
+            </li>
+            <li>
+                <h3>Cynthia Shelly</h3>
+                <p class="profile-role">Editor, Core-AAM</p>
+                <p>25 years in web accessibility, including 20 as Microsoft’s and Google’s representative to W3C
+                    accessibility standards groups. She was a major driver of the HTML-AAM and Core-AAM specifications
+                    this work tests against.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="scope">
+        <h2 class="section-heading">Scope and administration</h2>
+        <details>
+            <summary>In scope</summary>
+            <ul role="list">
+                <li>Writing Web Platform Tests to fill in gaps</li>
+                <li>Writing ARIA-AT tests to fill in the gaps</li>
+                <li>Reorganising WPT to be more reflective of specifications being tested</li>
+                <li>Building a decision framework to map incoming data to support statuses</li>
+            </ul>
+        </details>
+        <details>
+            <summary>Out of scope</summary>
+            <ul role="list">
+                <li>Building integration APIs for Baseline, MDN, etc.</li>
+                <li>Investigating automated testing for platform APIs</li>
+                <li>Implementing automated testing for platform APIs</li>
+            </ul>
+        </details>
+        <details>
+            <summary>Administration</summary>
+            <p>Administration is included in the cost of deliverables. Developers and the project manager will:</p>
+            <ul role="list">
+                <li>Attend W3C ARIA-AT meetings for two hours a month</li>
+                <li>Attend W3C WebDX meetings for two hours a month</li>
+                <li>Attend Interop Accessibility Focus Area meetings for one hour a month</li>
+                <li>Attend ACD stakeholder meetings for one hour a month</li>
+                <li>Take part in asynchronous communication for each group</li>
+                <li>Share weekly progress updates covering completed work, outstanding work, blockers and delays</li>
+            </ul>
+        </details>
+    </section>
+
+    <ul class="panels" role="list">
+        <li class="panel-prussian" id="contact">
+            <h2 class="section-heading">Fund</h2>
+            <h3>Fund the Work</h3>
+            <p>Organisations can fund a single deliverable or the whole project. Most of the work happens through
+                consensus-building with W3C groups, so it’s costed as fixed prices rather than hours. Where an external
+                team needs to sign off, scope flexes rather than cost, and we’ll raise anything relevant early.</p>
+            <ul class="checklist" role="list">
+                <li>Work starts as soon as funding is confirmed</li>
+                <li>Each deliverable has clear acceptance criteria</li>
+                <li>Pay monthly over the course of a deliverable</li>
+            </ul>
+            <a href="mailto:lola@lolaslab.co?subject=Funding%20ACD" class="cta">Get in touch</a>
+        </li>
+    </ul>
+
+    <section id="funders">
+        <h2 class="section-heading">Previous and current funders</h2>
+        <ul class="contributor-list" role="list">
+            <li>
+                <img src="/images/mdn.svg" alt="Mozilla" class="contributor-logo" loading="lazy">
+                <p class="funder-note">Partially funded the proof of concept</p>
+            </li>
+            <li>
+                <img src="/images/a11y.svg" alt="The A11y Project" class="contributor-logo" loading="lazy">
+                <p class="funder-note">Funded research and development of the proof of concept</p>
+            </li>
+            <li>
+                <img src="/images/stf.svg" alt="Sovereign Tech Fund" class="contributor-logo" loading="lazy">
+                <p class="funder-note">Funding D2, now underway</p>
+            </li>
+        </ul>
+    </section>
+</article>
+<script>
+    // Print the whole proposal, with every collapsed section expanded
+    document.querySelector("[data-print]").addEventListener("click", () => print());
+    addEventListener("beforeprint", () => document.querySelectorAll("details").forEach((d) => d.open = true));
+</script>

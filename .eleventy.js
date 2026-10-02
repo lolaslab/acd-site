@@ -22,6 +22,9 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addPlugin(syntaxHighlight);
 
+    // Format a number as US dollars, e.g. 45900 → $45,900
+    eleventyConfig.addFilter("usd", (value) => `$${Number(value).toLocaleString("en-US")}`);
+
     // Newest date in the collection
     eleventyConfig.addFilter('collectionLastUpdatedDate', (collection) => {
         if (!collection?.length) {

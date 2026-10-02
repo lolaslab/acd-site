@@ -55,7 +55,7 @@ table {
     --lav-grey: #778da9;
     --alabaster-grey: #e0e1dd;
     --berry: #a3185e;
-    --berry-light: color-mix(in srgb, var(--berry) 50%, white);
+    --berry-light: color-mix(in srgb, var(--berry) 50%, var(--alabaster-grey));
     --border-accent: 1px solid var(--lav-grey);
 
     /* Type */
@@ -108,7 +108,7 @@ a:hover {
     outline-offset: 3px;
 }
 
-:is(.mock, #contribute-list) :focus-visible {
+:is(.mock, .panels, .proposal-summary) :focus-visible {
     outline-color: var(--alabaster-grey);
 }
 
@@ -183,7 +183,7 @@ a:hover {
 }
 
 /* Pill-shaped calls to action */
-.nav-cta, .contribute-cta {
+.cta {
     display: inline-block;
     padding: 0.4rem 1.1rem;
     border-radius: var(--radius-pill);
@@ -191,11 +191,11 @@ a:hover {
     color: var(--alabaster-grey);
 }
 
-.nav-cta:hover, .contribute-cta:hover {
+.cta:hover {
     font-weight: 600;
 }
 
-.nav-cta:hover {
+.cta:hover {
     background: var(--prussian-blue);
 }
 
@@ -278,7 +278,7 @@ a:hover {
 }
 
 /* Labels that lead straight into their content */
-#plan .section-heading, #contribute-list .section-heading {
+#plan .section-heading, .panels .section-heading {
     margin: 0 0 0.75rem;
 }
 
@@ -297,6 +297,10 @@ a:hover {
 
 #roadmap li {
     counter-increment: step;
+}
+
+/* Bordered cards, shared by the roadmap and the proposal */
+#roadmap li, .card {
     margin: 0;
     padding: 1.5rem;
     border: var(--border-accent);
@@ -307,6 +311,9 @@ a:hover {
 
 #roadmap li::before {
     content: counter(step, decimal-leading-zero);
+}
+
+#roadmap li::before, .card-number {
     display: block;
     margin-bottom: 0.75rem;
     font-size: var(--text-l);
@@ -320,9 +327,9 @@ a:hover {
     font-weight: 700;
 }
 
-/* Get involved: full-bleed panels whose content lines up with the page */
+/* Full-bleed panels whose content lines up with the page */
 
-#contribute-list {
+.panels {
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -330,12 +337,12 @@ a:hover {
 }
 
 @media (min-width: 48rem) {
-    #contribute-list {
+    .panels {
         flex-direction: row;
     }
 }
 
-#contribute-list > li {
+.panels > li {
     flex: 1;
     margin: 0;
     padding: 4.5rem max(var(--gutter), (100vw - var(--page-width)) / 2);
@@ -344,40 +351,46 @@ a:hover {
     line-height: 1.6;
 }
 
-#contribute-tests { background: var(--dusk-blue); }
-#contribute-fund  { background: var(--prussian-blue); }
+.panel-dusk     { background: var(--dusk-blue); }
+.panel-prussian { background: var(--prussian-blue); }
 
-#contribute-list h3 {
+.panels h3 {
     margin-bottom: 0.75rem;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: var(--text-l);
     font-weight: 800;
     letter-spacing: -0.01em;
     line-height: 1.2;
 }
 
-#contribute-list p {
+.panels p {
     font-size: inherit;
     margin: 0 0 1.5rem;
 }
 
-/*.contribute-checklist {*/
+/*.checklist {*/
 /*    margin: 0 0 1.5rem;*/
 /*    font-size: inherit;*/
 /*}*/
 
-.contribute-checklist li {
+.checklist li {
     margin: 0 0 0.25rem;
     font-size: var(--text-m);
 }
 
-.contribute-checklist li::before {
+.checklist li::before {
     content: "✓";
     margin-right: 0.5em;
     font-weight: 700;
 }
 
 /* Prussian blue would vanish on the Fund panel */
-.contribute-cta:hover {
+/* In-page calls to action are larger than the nav's */
+:is(.panels, .proposal-summary) .cta, .proposal-print {
+    padding: 0.75rem 1.75rem;
+    font-size: var(--text-l);
+}
+
+:is(.panels, .proposal-summary) .cta:hover {
     background: var(--berry-light);
     color: var(--inky-black);
 }
@@ -431,7 +444,7 @@ a:hover {
 
 .mock-label code {
     font-family: var(--mono);
-    font-size: 0.9em;
+    font-size: var(--text-s);
     padding: 0.15em 0.45em;
     border-radius: 0.35em;
     background: var(--dusk-blue);
@@ -512,4 +525,303 @@ a:hover {
     overflow-x: auto;
     font-size: var(--text-m);
     line-height: 1.5;
+}
+
+/* Funding proposal */
+
+/* Type scale: 14px labels, 18px body, 22px lead and card headings */
+.proposal p {
+    max-width: 60ch;
+    font-size: var(--text-m);
+}
+
+.proposal #desc {
+    font-size: var(--text-l);
+}
+
+.card-grid .step-title, .profiles h3 {
+    font-size: var(--text-l);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.card .deliverable-status, .proposal .funder-note {
+    font-size: var(--text-s);
+}
+
+.proposal strong {
+    font-weight: 700;
+}
+
+.proposal ol {
+    list-style: none;
+}
+
+.proposal section > .section-heading {
+    margin: 5rem 0 0.75rem;
+}
+
+/* Full-bleed band; --edge is the distance from the screen edge to the page content */
+.proposal-summary {
+    --edge: calc(max(0px, (100vw - var(--page-width) - 2 * var(--gutter)) / 2) + var(--gutter));
+    box-sizing: border-box;
+    width: 100vw;
+    margin-left: calc(-1 * var(--edge));
+    padding: 2.5rem var(--edge);
+    background: var(--prussian-blue);
+    color: var(--alabaster-grey);
+}
+
+.proposal-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1.5rem;
+}
+
+.proposal-stats dt {
+    margin-bottom: 0.25rem;
+    font-size: var(--text-s);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.proposal-stats dd {
+    font-size: var(--text-l);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.proposal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.proposal-print {
+    border: 1px solid currentColor;
+    border-radius: var(--radius-pill);
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.proposal-print:hover {
+    background: var(--alabaster-grey);
+    color: var(--inky-black);
+}
+
+.proposal-toc {
+    margin-top: 2.5rem;
+}
+
+.proposal-toc .section-heading {
+    margin: 0 0 0.75rem;
+}
+
+.proposal-toc li {
+    margin: 0 0 0.25rem;
+    font-size: var(--text-m);
+}
+
+/* Drop cap: the figure sits beside the first lines of its sentence */
+.proposal-stat strong {
+    float: left;
+    margin: 0.05em 0.15em 0 0;
+    font-size: var(--text-display);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+}
+
+.proposal-stat::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Grids of cards: quotes, team, deliverables */
+.card-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 48rem) {
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.card p {
+    margin: 0 0 1rem;
+    font-size: inherit;
+}
+
+/* Pull quotes: large type opened by an oversized quotation mark */
+.quotes {
+    display: grid;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+@media (min-width: 48rem) {
+    .quotes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.quotes > li {
+    margin: 0;
+}
+
+.quotes blockquote::before {
+    content: "“" / "";
+    display: block;
+    height: 2.5rem;
+    font-size: var(--text-display);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--dusk-blue);
+}
+
+.proposal .quotes blockquote p {
+    margin-bottom: 1rem;
+    font-size: var(--text-l);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.quotes figcaption {
+    font-size: var(--text-s);
+    line-height: 1.5;
+}
+
+.quotes figcaption::before {
+    content: "— ";
+}
+
+/* Team: solid profiles, distinct from the bordered deliverable cards */
+.profiles {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 48rem) {
+    .profiles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.profiles > li {
+    margin: 0;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--lav-grey) 50%, var(--alabaster-grey));
+    font-size: var(--text-m);
+    line-height: 1.6;
+}
+
+.proposal .profile-role {
+    margin-bottom: 1rem;
+    font-size: var(--text-s);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.profiles p {
+    margin: 0;
+    font-size: inherit;
+}
+
+.deliverable-status {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid var(--dusk-blue);
+    border-radius: var(--radius-pill);
+    color: var(--dusk-blue);
+    font-size: var(--text-s);
+    font-weight: 600;
+}
+
+.deliverable-status-funded {
+    border-color: transparent;
+    background: #DCF2E3;
+    color: #0B5A2A;
+}
+
+.proposal summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.proposal details {
+    margin-bottom: 0.5rem;
+    font-size: var(--text-m);
+}
+
+.proposal details[open] summary {
+    margin-bottom: 1rem;
+}
+
+.proposal details :is(li, p) {
+    margin: 0 0 0.5rem;
+    font-size: var(--text-m);
+    line-height: 1.6;
+}
+
+.proposal details h4 {
+    margin: 1.25rem 0 0.5rem;
+    font-size: var(--text-m);
+    font-weight: 700;
+}
+
+.funder-note {
+    max-width: 14rem;
+    margin: 0.75rem auto 0;
+    font-size: var(--text-s);
+    line-height: 1.5;
+    text-align: center;
+}
+
+@media print {
+    header, footer, .proposal-actions, .proposal-toc, .panels .cta {
+        display: none;
+    }
+
+    body, .proposal-summary, .panels > li {
+        background: none;
+        color: #000;
+    }
+
+    .proposal-summary, .panels, .panels > li {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .term-trigger {
+        text-decoration: none;
+    }
+
+    .card {
+        break-inside: avoid;
+    }
+}
+
+/* Bulleted lists in the scope section */
+#scope ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+#scope details, #scope details :is(li, p) {
+    font-size: var(--text-l);
 }
