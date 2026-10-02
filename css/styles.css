@@ -54,6 +54,8 @@ table {
     --dusk-blue: #415a77;
     --lav-grey: #778da9;
     --alabaster-grey: #e0e1dd;
+    --berry: #a3185e;
+    --berry-light: color-mix(in srgb, var(--berry) 50%, white);
     --border-accent: 1px solid var(--lav-grey);
 
     /* Type */
@@ -91,6 +93,7 @@ p, ol, ul, li {
 }
 
 a {
+    color: var(--berry);
     text-decoration: none;
     font-weight: 600;
 }
@@ -120,6 +123,23 @@ a:hover {
 
 .nav-list-item {
     margin: 0;
+}
+
+/* Pill-shaped calls to action */
+.nav-cta, .contribute-cta {
+    display: inline-block;
+    padding: 0.4rem 1.1rem;
+    border-radius: var(--radius-pill);
+    background: var(--berry);
+    color: var(--alabaster-grey);
+}
+
+.nav-cta:hover, .contribute-cta:hover {
+    font-weight: 600;
+}
+
+.nav-cta:hover {
+    background: var(--prussian-blue);
 }
 
 #logo-word-mark {
@@ -177,14 +197,6 @@ a:hover {
     background: var(--inky-black);
 }
 
-.section-title {
-    margin: 5rem 0 1rem;
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.1;
-}
-
 .copyright {
     font-size: var(--text-s);
     margin-bottom: .5em;
@@ -192,6 +204,14 @@ a:hover {
 }
 
 /* Roadmap */
+
+#plan {
+    margin-top: 5rem;
+}
+
+#plan .section-heading {
+    margin-bottom: 0.75rem;
+}
 
 #roadmap {
     list-style: none;
@@ -287,21 +307,10 @@ a:hover {
     font-weight: 700;
 }
 
-.contribute-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-}
-
-.contribute-links a {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.3em;
-}
-
-.contribute-links a:hover {
-    text-decoration-thickness: 4px;
+/* Prussian blue would vanish on the Fund panel */
+.contribute-cta:hover {
+    background: var(--berry-light);
+    color: var(--inky-black);
 }
 
 /* Contributors */
