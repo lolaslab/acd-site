@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
-ul {
+ul, ol {
     list-style: none;
 }
 blockquote, q {
@@ -105,6 +105,19 @@ a {
 
 a:hover {
     font-weight: 900;
+}
+
+strong {
+    font-weight: 700;
+}
+
+em {
+    font-style: italic;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
 }
 
 /* Keyboard focus: inky ring on light backgrounds, alabaster on dark ones */
@@ -203,9 +216,6 @@ a:hover {
 
 .cta:hover {
     font-weight: 600;
-}
-
-.cta:hover {
     background: var(--prussian-blue);
 }
 
@@ -236,7 +246,7 @@ a:hover {
 
 /* Headings */
 
-.title {
+.title, .post h1 {
     font-weight: 800;
     font-size: var(--text-display);
     letter-spacing: -0.02em;
@@ -249,7 +259,7 @@ a:hover {
     max-width: 60ch;
 }
 
-.section-heading, .copyright {
+.section-heading, .copyright, .post h2 {
     margin-bottom: var(--space-m);
     font-size: var(--text-m);
     text-transform: uppercase;
@@ -257,12 +267,8 @@ a:hover {
     font-weight: 600;
 }
 
-.section-heading:first-child {
-    margin-top: var(--space-l);
-}
-
 :is(#developers, #funders) .section-heading {
-    margin-bottom: var(--space-l);
+    margin: var(--space-l) 0;
     text-align: center;
 }
 
@@ -294,7 +300,6 @@ a:hover {
 }
 
 #roadmap {
-    list-style: none;
     counter-reset: step;
     display: grid;
     gap: var(--space-m);
@@ -378,11 +383,6 @@ a:hover {
     margin: 0 0 var(--space-m);
 }
 
-/*.checklist {*/
-/*    margin: 0 0 var(--space-m);*/
-/*    font-size: inherit;*/
-/*}*/
-
 .checklist li {
     margin: 0 0 calc(var(--space-s) / 2);
     font-size: var(--text-m);
@@ -394,13 +394,13 @@ a:hover {
     font-weight: 700;
 }
 
-/* Prussian blue would vanish on the Fund panel */
 /* In-page calls to action are larger than the nav's */
 :is(.panels, .proposal-summary) .cta, .proposal-print {
     padding: var(--space-s) var(--space-m);
     font-size: var(--text-l);
 }
 
+/* Prussian blue would vanish on the dark panels */
 :is(.panels, .proposal-summary) .cta:hover {
     background: var(--berry-light);
     color: var(--inky-black);
@@ -435,11 +435,6 @@ a:hover {
     border-radius: 50%;
 }
 
-#aria-at-logo {
-    font-weight: 700;
-    font-size: var(--text-l);
-}
-
 /* Data preview mock-up */
 
 .mock {
@@ -459,13 +454,14 @@ a:hover {
     letter-spacing: 0.08em;
 }
 
-.mock-label code {
-    font-family: var(--mono);
-    font-size: var(--text-s);
+/* Inline code chips */
+.mock-label code, .post code {
     padding: 0 calc(var(--space-s) / 2);
     border-radius: 0.35em;
     background: var(--dusk-blue);
     color: var(--alabaster-grey);
+    font-family: var(--mono);
+    font-size: 0.9em;
 }
 
 .table-scroll {
@@ -521,6 +517,7 @@ a:hover {
 .status-no::before          { content: "✕"; }
 .status-untested            { color: var(--alabaster-grey); border: 1px dashed var(--lav-grey); }
 .status-untested::before    { content: "–"; }
+.status-seeking             { color: var(--dusk-blue); border: 1px solid var(--dusk-blue); }
 
 .mock-note {
     margin: var(--space-m) 0 0;
@@ -532,11 +529,6 @@ a:hover {
     margin-top: var(--space-m);
 }
 
-.mock-json summary {
-    cursor: pointer;
-    font-weight: 600;
-}
-
 .mock-json pre {
     margin-top: var(--space-s);
     overflow-x: auto;
@@ -545,10 +537,6 @@ a:hover {
 }
 
 /* Updates index: each post is a card, its title the link */
-
-.update-list, .pagination-list {
-    list-style: none;
-}
 
 .update-list {
     display: grid;
@@ -562,14 +550,8 @@ a:hover {
     font-size: var(--text-s);
 }
 
-.update-list .step-title {
-    font-size: var(--text-l);
-    line-height: 1.3;
-}
-
-.update-list p:last-child {
-    margin: 0;
-    font-size: var(--text-m);
+.card > :last-child {
+    margin-bottom: 0;
 }
 
 .pagination-list {
@@ -598,22 +580,9 @@ a:hover {
     margin: 0 0 var(--space-s);
 }
 
-.post h1 {
-    max-width: 15ch;
-    margin: 0 0 var(--space-m);
-    font-size: var(--text-display);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1;
-}
-
 /* Section labels, as on the home page */
 .post h2 {
     margin: var(--space-l) 0 var(--space-s);
-    font-size: var(--text-m);
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
 }
 
 .post h3 {
@@ -624,7 +593,7 @@ a:hover {
     text-transform: uppercase;
 }
 
-.post :is(p, ol, ul, li) {
+.post :is(p, ol, ul, li), .proposal p {
     max-width: 60ch;
     font-size: var(--text-m);
 }
@@ -654,69 +623,28 @@ a:hover {
     margin: var(--space-s) 0 0;
 }
 
-.post strong {
-    font-weight: 700;
-}
-
-.post em {
-    font-style: italic;
-}
-
 .post blockquote, .quote blockquote {
     margin: var(--space-m) 0;
     padding-left: var(--space-m);
     border-left: 6px solid var(--dusk-blue);
 }
 
-/* Inline code, matching the table caption's code label */
-.post code {
-    padding: 0 calc(var(--space-s) / 2);
-    border-radius: 0.35em;
-    background: var(--dusk-blue);
-    color: var(--alabaster-grey);
-    font-family: var(--mono);
-    font-size: 0.9em;
-}
-
-.post sup {
-    font-size: var(--text-s);
-    vertical-align: super;
-    line-height: 0;
-}
-
-.footnote {
-    margin-top: var(--space-l);
-    font-size: var(--text-s);
-}
-
 /* Funding proposal */
 
 /* Type scale: 14px labels, 18px body, 22px lead and card headings */
-.proposal p {
-    max-width: 60ch;
-    font-size: var(--text-m);
-}
-
 .proposal #desc {
     font-size: var(--text-l);
 }
 
-.card-grid .step-title, .profiles h3 {
+.card-grid .step-title, .profiles h3, .update-list .step-title {
     font-size: var(--text-l);
     font-weight: 700;
     line-height: 1.3;
 }
 
-.card .deliverable-status, .proposal .funder-note {
+/* Card paragraphs inherit the card's size, except status pills */
+.card .status {
     font-size: var(--text-s);
-}
-
-.proposal strong {
-    font-weight: 700;
-}
-
-.proposal ol {
-    list-style: none;
 }
 
 .proposal section > .section-heading {
@@ -824,18 +752,6 @@ a:hover {
     font-size: inherit;
 }
 
-/*.quotes {*/
-/*    display: grid;*/
-/*    gap: 3rem;*/
-/*    margin: 3rem 0;*/
-/*}*/
-
-/*@media (min-width: 48rem) {*/
-/*    .quotes {*/
-/*        grid-template-columns: repeat(2, minmax(0, 1fr));*/
-/*    }*/
-/*}*/
-
 /* Quotes share the update posts' blockquote style */
 .quote figcaption {
     margin-bottom: var(--space-m);
@@ -878,27 +794,6 @@ a:hover {
     font-size: inherit;
 }
 
-.deliverable-status {
-    display: inline-block;
-    padding: calc(var(--space-s) / 2) var(--space-s);
-    border: 1px solid var(--dusk-blue);
-    border-radius: var(--radius-pill);
-    color: var(--dusk-blue);
-    font-size: var(--text-s);
-    font-weight: 600;
-}
-
-.deliverable-status-funded {
-    border-color: transparent;
-    background: #DCF2E3;
-    color: #0B5A2A;
-}
-
-.proposal summary {
-    cursor: pointer;
-    font-weight: 600;
-}
-
 .proposal details {
     margin-bottom: var(--space-s);
     font-size: var(--text-m);
@@ -918,14 +813,6 @@ a:hover {
     margin: var(--space-m) 0 var(--space-s);
     font-size: var(--text-m);
     font-weight: 700;
-}
-
-.funder-note {
-    max-width: 14rem;
-    margin: var(--space-s) auto 0;
-    font-size: var(--text-s);
-    line-height: 1.5;
-    text-align: center;
 }
 
 @media print {

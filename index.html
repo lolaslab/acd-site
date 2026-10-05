@@ -1,82 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ACD - Accessibility Compatibility Data</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/terms.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-    <body>
-        {% include "partials/_nav.njk" %}
-        <main class="container">
-            <h1 class="title">Bringing accessibility support data to developer tools</h1>
-            <p id="desc">Browser compatibility data doesn't tell you if a feature works with assistive technology.
-                ACD adds accessibility support data to the tools developers already use, working with Mozilla, BCD,
-                ARIA-AT and Baseline. Support data doesn't tell you whether a feature is accessible, it shows where
-                browsers and screen readers fall short, so you can plan workarounds.</p>
-            <figure class="mock">
-                <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>
-                    not real data</figcaption>
+---
+layout: layouts/default.njk
+title: ACD - Accessibility Compat Data
+social_img: /images/general-social.png
+social_img_alt: "Accessibility Compat Data. Bringing accessibility support data to developer tools"
+---
+<h1 class="title">Bringing accessibility support data to developer tools</h1>
+<p id="desc">Browser compatibility data doesn't tell you if a feature works with assistive technology.
+    ACD adds accessibility support data to the tools developers already use, working with Mozilla, BCD,
+    ARIA-AT and Baseline. Support data doesn't tell you whether a feature is accessible, it shows where
+    browsers and screen readers fall short, so you can plan workarounds.</p>
+<figure class="mock">
+    <figcaption class="mock-label">Illustrative example for <code>&lt;button&gt;</code>
+        not real data</figcaption>
 
-                <div class="table-scroll" role="region" aria-label="Button ACD status" tabindex="0">
-                    <table>
-                        <caption class="visually-hidden">ACD status for the button element, by screen reader and browser</caption>
-                        <thead>
-                        <tr>
-                            <td></td>
-                            <th scope="col">Chrome <span class="version">140</span></th>
-                            <th scope="col">Edge <span class="version">140</span></th>
-                            <th scope="col">Firefox <span class="version">143</span></th>
-                            <th scope="col">Safari <span class="version">26</span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">JAWS <span class="version">2025</span></th>
-                            <td><span class="status status-yes">Supported</span></td>
-                            <td><span class="status status-yes">Supported</span></td>
-                            <td>
-                                <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Browser fails</span>
-                            </td>
-                            <td><span class="status">Not applicable</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">NVDA <span class="version">2025.3</span></th>
-                            <td>
-                                <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Screen reader fails</span>
-                            </td>
-                            <td>
-                                <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Screen reader fails</span>
-                            </td>
-                            <td>
-                                <span class="status status-no">Unsupported</span>
-                                <span class="cell-note">Browser and screen reader fail</span>
-                            </td>
-                            <td><span class="status">Not applicable</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">VoiceOver <span class="version">macOS 26</span></th>
-                            <td><span class="status status-untested">Not tested</span></td>
-                            <td><span class="status status-untested">Not tested</span></td>
-                            <td><span class="status status-untested">Not tested</span></td>
-                            <td>
-                                <span class="status status-partial">Partial</span>
-                                <span class="cell-note">Browser fails</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p class="mock-note">"Supported" doesn't mean "accessible". ACD shows you where support gaps are, so you can
-                    add fallbacks before users hit them.</p>
+    <div class="table-scroll" role="region" aria-labelledby="mock-caption" tabindex="0">
+        <table>
+            <caption class="visually-hidden" id="mock-caption">ACD status for the button element, by screen reader and browser</caption>
+            <thead>
+            <tr>
+                <td></td>
+                <th scope="col">Chrome 140</th>
+                <th scope="col">Edge 140</th>
+                <th scope="col">Firefox 143</th>
+                <th scope="col">Safari 26</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">JAWS 2025</th>
+                <td><span class="status status-yes">Supported</span></td>
+                <td><span class="status status-yes">Supported</span></td>
+                <td>
+                    <span class="status status-partial">Partial</span>
+                    <span class="cell-note">Browser fails</span>
+                </td>
+                <td><span class="status">Not applicable</span></td>
+            </tr>
+            <tr>
+                <th scope="row">NVDA 2025.3</th>
+                <td>
+                    <span class="status status-partial">Partial</span>
+                    <span class="cell-note">Screen reader fails</span>
+                </td>
+                <td>
+                    <span class="status status-partial">Partial</span>
+                    <span class="cell-note">Screen reader fails</span>
+                </td>
+                <td>
+                    <span class="status status-no">Unsupported</span>
+                    <span class="cell-note">Browser and screen reader fail</span>
+                </td>
+                <td><span class="status">Not applicable</span></td>
+            </tr>
+            <tr>
+                <th scope="row">VoiceOver macOS 26</th>
+                <td><span class="status status-untested">Not tested</span></td>
+                <td><span class="status status-untested">Not tested</span></td>
+                <td><span class="status status-untested">Not tested</span></td>
+                <td>
+                    <span class="status status-partial">Partial</span>
+                    <span class="cell-note">Browser fails</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="mock-note">"Supported" doesn't mean "accessible". ACD shows you where support gaps are, so you can
+        add fallbacks before users hit them.</p>
 
-                <details class="mock-json">
-                    <summary>View as machine-readable data</summary>
-                    <pre><code>{
+    <details class="mock-json">
+        <summary>View as machine-readable data</summary>
+        <pre><code>{
   "feature": "html.elements.button",
   "results": [
     { "screen_reader": { "name": "jaws", "version": "2025" },
@@ -117,80 +111,70 @@
       "status": "partial", "notes": ["Browser fails"] }
   ]
 }</code></pre>
-                </details>
-            </figure>
-            <section id="plan">
-                <h2 class="section-heading">Roadmap</h2>
-                <p>ACD is in early development but here's how we're going to get from tests to developer tools:</p>
-                <ol role="list" id="roadmap">
-                    <li>
-                        <span class="step-title">Expand test coverage</span>
-                        Add browser and screen-reader tests for HTML features to Web Platform Tests and ARIA-AT.
-                    </li>
-                    <li>
-                        <span class="step-title">Compute a support status</span>
-                        Combine those results into a machine-readable support status for each feature.
-                    </li>
-                    <li>
-                        <span class="step-title">Bring it to developer tools</span>
-                        Get the data into the tools developers already use, like MDN and Baseline.
-                    </li>
-                </ol>
-            </section>
-            <section id="support">
-                <ul class="panels" role="list">
-                    <li class="panel-dusk">
-                        <h2 class="section-heading">Volunteer</h2>
-                        <h3>Write Screen-Reader Tests</h3>
-                        <p>Every test you write shows developers whether a feature really works with screen readers.
-                            Join the ARIA-AT Community Group to write and review the tests behind ACD's data.</p>
-                        <ul class="checklist" role="list">
-                            <li>No screen-reader experience needed</li>
-                            <li>A few hours a month</li>
-                            <li>Guided by the community group</li>
-                        </ul>
-                        <a href="https://www.w3.org/community/aria-at/" class="cta">Join the ARIA-AT community group</a>
-                    </li>
-                    <li class="panel-prussian">
-                        <h2 class="section-heading">Fund</h2>
-                        <h3>Support the Work</h3>
-                        <p>Help developers find accessibility gaps before their users do.</p>
-                        <ul class="checklist" role="list">
-                            <li>Backfilling gaps in the test suites</li>
-                            <li>Building the ACD collector</li>
-                            <li>Getting the data into developer tools</li>
-                        </ul>
-                        <a href="https://opencollective.com/acd" class="cta">Back ACD on Open Collective</a>
-                    </li>
-                </ul>
-            </section>
-            <section id="developers">
-                <h2 class="section-heading">Developed by</h2>
-                <ul class="contributor-list">
-                    <li><img src="images/lolas-lab.svg" alt="lola's lab" class="contributor-logo" loading="lazy"></li>
-                    <li><img src="images/scaled-a11y.png" alt="Scaled Ally" class="contributor-logo" id="scaled-a11y" loading="lazy"></li>
-                </ul>
-            </section>
-            <section id="funders">
-                <h2 class="section-heading">Supported by</h2>
-                <ul class="contributor-list">
-                    <li><img src="images/a11y.svg" alt="The A11y Project" class="contributor-logo" loading="lazy"></li>
-                    <li><img src="images/mdn.svg" alt="Mozilla Web Docs" class="contributor-logo" loading="lazy"></li>
-                    <li><img src="images/stf.svg" alt="Sovereign Tech Standards Fund" class="contributor-logo" loading="lazy"></li>
-                    <!--
-                    <li><img src="images/owd.png" alt="Open Web Docs" class="contributor-logo"></li>
-                    <li id="aria-at-logo">ARIA-AT</li>
-                    <li><img src="images/baseline.svg" alt="Baseline" class="contributor-logo"></li>
-                    <li><img src="images/tetra.svg" alt="Tetralogical" class="contributor-logo"></li>
-                    -->
-                </ul>
-                <ul class="contributor-list">
-                    {% for funder in funders %}
-                    <li><img src="{{ funder.avatar }}" alt="{{ funder.name }}" class="contributor-avatar" loading="lazy"></li>
-                    {% endfor %}
-                </ul>
-            </section>
-        </main>
-        {% include "partials/_footer.njk" %}
-    </body>
-</html>
+    </details>
+</figure>
+<section id="plan">
+    <h2 class="section-heading">Roadmap</h2>
+    <p>ACD is in early development but here's how we're going to get from tests to developer tools:</p>
+    <ol role="list" id="roadmap">
+        <li>
+            <span class="step-title">Expand test coverage</span>
+            Add browser and screen-reader tests for HTML features to Web Platform Tests and ARIA-AT.
+        </li>
+        <li>
+            <span class="step-title">Compute a support status</span>
+            Combine those results into a machine-readable support status for each feature.
+        </li>
+        <li>
+            <span class="step-title">Bring it to developer tools</span>
+            Get the data into the tools developers already use, like MDN and Baseline.
+        </li>
+    </ol>
+</section>
+<section id="support">
+    <ul class="panels" role="list">
+        <li class="panel-dusk">
+            <h2 class="section-heading">Volunteer</h2>
+            <h3>Write Screen-Reader Tests</h3>
+            <p>Every test you write shows developers whether a feature really works with screen readers.
+                Join the ARIA-AT Community Group to write and review the tests behind ACD's data.</p>
+            <ul class="checklist" role="list">
+                <li>No screen-reader experience needed</li>
+                <li>A few hours a month</li>
+                <li>Guided by the community group</li>
+            </ul>
+            <a href="https://www.w3.org/community/aria-at/" class="cta">Join the ARIA-AT community group</a>
+        </li>
+        <li class="panel-prussian">
+            <h2 class="section-heading">Fund</h2>
+            <h3>Support the Work</h3>
+            <p>Help developers find accessibility gaps before their users do.</p>
+            <ul class="checklist" role="list">
+                <li>Backfilling gaps in the test suites</li>
+                <li>Building the ACD collector</li>
+                <li>Getting the data into developer tools</li>
+            </ul>
+            <a href="https://opencollective.com/acd" class="cta">Back ACD on Open Collective</a>
+        </li>
+    </ul>
+</section>
+<section id="developers">
+    <h2 class="section-heading">Developed by</h2>
+    <ul class="contributor-list">
+        <li><img src="/images/lolas-lab.svg" alt="lola's lab" class="contributor-logo" loading="lazy"></li>
+        <li><img src="/images/scaled-a11y.png" alt="Scaled Ally" class="contributor-logo" id="scaled-a11y" loading="lazy"></li>
+    </ul>
+</section>
+<section id="funders">
+    <h2 class="section-heading">Supported by</h2>
+    <ul class="contributor-list">
+        <li><img src="/images/a11y.svg" alt="The A11y Project" class="contributor-logo" loading="lazy"></li>
+        <li><img src="/images/mdn.svg" alt="Mozilla Web Docs" class="contributor-logo" loading="lazy"></li>
+        <li><img src="/images/stf.svg" alt="Sovereign Tech Standards Fund" class="contributor-logo" loading="lazy"></li>
+    </ul>
+    <ul class="contributor-list">
+        {% for funder in funders %}
+        <li><img src="{{ funder.avatar }}" alt="{{ funder.name }}" class="contributor-avatar" loading="lazy"></li>
+        {% endfor %}
+    </ul>
+</section>

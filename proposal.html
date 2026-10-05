@@ -1,6 +1,8 @@
 ---
 layout: layouts/default.njk
-title: ACD - Funding proposal
+title: ACD Funding proposal
+social_img: /images/general-social.png
+social_img_alt: "Accessibility Compat Data. Bringing accessibility support data to developer tools"
 ---
 {%- assign total = 0 -%}
 {%- assign open = 0 -%}
@@ -91,9 +93,9 @@ title: ACD - Funding proposal
                 <span class="card-number">{{ d.id }}</span>
                 <h3 class="step-title">{{ d.title }}</h3>
                 {%- if d.fundedBy %}
-                <p class="deliverable-status deliverable-status-funded">Funded by {{ d.fundedBy }} · In Progress</p>
+                <p class="status status-yes">Funded by {{ d.fundedBy }} · In Progress</p>
                 {%- else %}
-                <p class="deliverable-status">Seeking funding · {{ d.cost | usd }}</p>
+                <p class="status status-seeking">Seeking funding · {{ d.cost | usd }}</p>
                 {%- endif %}
                 <p>{{ d.objective }}</p>
                 {%- if d.criteria %}

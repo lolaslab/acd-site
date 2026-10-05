@@ -1,15 +1,13 @@
 {
-  "name": "acd-site",
+  "name": "Accessibility Compat Data",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Bringing accessibility support data to developer tools.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "eleventy",
+    "start": "eleventy --serve"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "dotenv": "^17.4.2",
-    "rfc822-date": "^0.0.3"
+    "dotenv": "^17.4.2"
   }
 }

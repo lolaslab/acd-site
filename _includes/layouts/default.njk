@@ -10,7 +10,7 @@
         {%- if description %}
         <meta name="description" content="{{ description | e }}">
         {%- endif %}
-        <link rel="canonical" href="{{ canonical_url or pageUrl }}">
+        <link rel="canonical" href="{{ pageUrl }}">
         <meta property="og:site_name" content="{{ site.name }}">
         <meta property="og:type" content="{{ 'article' if isPost else 'website' }}">
         <meta property="og:title" content="{{ shareTitle | e }}">
