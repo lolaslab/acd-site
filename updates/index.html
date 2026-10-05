@@ -8,31 +8,30 @@ pagination:
     reverse: true
 
 ---
-<h1>Updates</h1>
+<h1 class="title">Updates</h1>
 
-<ul class="secondary-container">
-    {% for update in updates %}
-    <li class="li-element-spacing">
-        <h2>{{ update.data.heading }}</h2>
-        <p class="note">{{ update.data.date | date: "%Y-%b-%d" }}</p>
-        <p id="description">{{ update.data.description }}</p>
-        <p class="permalink"><a href="{{ update.url }}" aria-label="{{ update.data.heading }}">Continue
-            Reading</a></p>
+<ol class="update-list" role="list">
+    {%- for update in updates %}
+    <li class="card">
+        <p class="section-heading update-date"><time datetime="{{ update.date | isoDate }}">{{ update.date | readableDate }}</time></p>
+        <h2 class="step-title"><a href="{{ update.url }}">{{ update.data.heading }}</a></h2>
+        <p>{{ update.data.description }}</p>
     </li>
-    {%- endfor -%}
-</ul>
+    {%- endfor %}
+</ol>
 
-
-<nav aria-label="pagination">
-    <ul class="pagination-list">
+{%- if pagination.pages.size > 1 %}
+<nav aria-label="Updates pages">
+    <ol class="pagination-list" role="list">
         {%- for pageEntry in pagination.pages %}
-        <li><a href="{{ pagination.hrefs[ forloop.index0 ] }}"
-               {%
-                if page.url == pagination.hrefs[ forloop.index0 ]
-               %}
-               aria-current="page"
-               {% endif %}
-        >Page {{ forloop.index }}</a></li>
+        <li>
+            {%- if page.url == pagination.hrefs[forloop.index0] %}
+            <span aria-current="page">Page {{ forloop.index }}</span>
+            {%- else %}
+            <a href="{{ pagination.hrefs[forloop.index0] }}">Page {{ forloop.index }}</a>
+            {%- endif %}
+        </li>
         {%- endfor %}
-    </ul>
+    </ol>
 </nav>
+{%- endif %}
