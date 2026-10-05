@@ -103,18 +103,11 @@ a {
     text-decoration: underline;
 }
 
-.a-ondark {
-    color: var(--berry-light);
-    text-decoration: underline;
-}
-
 a:hover {
     color: var(--prussian-blue);
 }
 
-.a-ondark:hover {
-    color: color-mix(in srgb, var(--lav-grey) 60%, var(--alabaster-grey));
-}
+
 
 strong {
     font-weight: 700;
@@ -422,6 +415,15 @@ summary {
 :is(.panels, .proposal-summary) .cta:hover {
     background: var(--berry-light);
     color: var(--inky-black);
+}
+
+.panels .panel-prussian p a {
+    color: var(--berry-light);
+    text-decoration: underline;
+}
+
+.panels .panel-prussian p a:hover {
+    color: color-mix(in srgb, var(--lav-grey) 60%, var(--alabaster-grey));
 }
 
 /* Contributors */
