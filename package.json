@@ -2,10 +2,6 @@
   "name": "Accessibility Compat Data",
   "version": "1.0.0",
   "description": "Bringing accessibility support data to developer tools.",
-  "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
-  },
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
     "dotenv": "^17.4.2"
