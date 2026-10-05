@@ -31,5 +31,11 @@
   },
   "Accessibility-Supported": {
     "definition": "The way that the web content technology is used must be supported by users’ assistive technology (AT). This means that the way that the technology is used has been tested for interoperability with users’ assistive technology in the human language(s) of the content. The web content technology must have accessibility-supported user agents that are available to users, the technology is supported natively in widely-distributed user agents that are also accessibility supported."
+  },
+  "WebIDL": {
+    "definition": "WebIDL defines the interface for an API or browser feature. It specifies the data types, methods, properties and attributes for the feature."
+  },
+  "web-feature": {
+    "definition": "web-features is an effort to build a shared catalog of features of the web platform. By creating a common list of features and their definitions, web-features aims to improve understanding of what web developers get and want from the web."
   }
 }

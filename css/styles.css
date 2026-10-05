@@ -67,6 +67,11 @@ table {
     --text-l: 1.375rem;
     --text-display: clamp(2.5rem, 6vw, 4rem);
 
+    /* Spacing */
+    --space-s: 0.5rem;
+    --space-m: 1.5rem;
+    --space-l: 3rem;
+
     /* Layout */
     --gutter: clamp(1rem, 5vw, 3rem);
     --page-width: 68rem;
@@ -89,14 +94,13 @@ body {
 
 p, ol, ul, li {
     font-size: var(--text-l);
-    margin: 0 0 2.5rem;
+    margin: 0 0 var(--space-m);
     line-height: 1.7;
 }
 
 a {
     color: var(--berry);
-    text-decoration: none;
-    font-weight: 600;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -148,7 +152,7 @@ a:hover {
     z-index: 1;
     width: max-content;
     max-width: min(20rem, calc(100vw - 2 * var(--gutter)));
-    padding: 0.75rem 1rem;
+    padding: var(--space-s) var(--space-m);
     border-radius: 0.5rem;
     background: var(--prussian-blue);
     color: var(--alabaster-grey);
@@ -160,7 +164,7 @@ a:hover {
 
 .term-tip strong {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: calc(var(--space-s) / 2);
     font-weight: 700;
 }
 
@@ -174,19 +178,24 @@ a:hover {
 #nav-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-s) var(--space-m);
     align-items: center;
-    padding-block: 1.5rem;
+    padding-block: var(--space-m);
 }
 
 .nav-list-item {
     margin: 0;
 }
 
+.nav-list-item a, .cta {
+    text-decoration: none;
+    font-weight: 600;
+}
+
 /* Pill-shaped calls to action */
 .cta {
     display: inline-block;
-    padding: 0.4rem 1.1rem;
+    padding: var(--space-s) var(--space-m);
     border-radius: var(--radius-pill);
     background: var(--berry);
     color: var(--alabaster-grey);
@@ -233,7 +242,7 @@ a:hover {
     letter-spacing: -0.02em;
     line-height: 1;
     max-width: 15ch;
-    margin: 0 0 2.5rem;
+    margin: 0 0 var(--space-m);
 }
 
 #desc {
@@ -241,7 +250,7 @@ a:hover {
 }
 
 .section-heading, .copyright {
-    margin-bottom: 2em;
+    margin-bottom: var(--space-m);
     font-size: var(--text-m);
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -249,11 +258,11 @@ a:hover {
 }
 
 .section-heading:first-child {
-    margin-top: 2em;
+    margin-top: var(--space-l);
 }
 
 :is(#developers, #funders) .section-heading {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-l);
     text-align: center;
 }
 
@@ -262,33 +271,33 @@ a:hover {
     display: block;
     width: 6rem;
     height: 6px;
-    margin: 0 auto 2em;
+    margin: 0 auto var(--space-m);
     border-radius: var(--radius-pill);
     background: var(--inky-black);
 }
 
 .copyright {
     font-size: var(--text-s);
-    margin-bottom: .5em;
+    margin-bottom: var(--space-s);
     text-align: center;
 }
 
 /* Roadmap */
 
 #plan {
-    margin-top: 5rem;
+    margin-top: var(--space-l);
 }
 
 /* Labels that lead straight into their content */
 #plan .section-heading, .panels .section-heading {
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--space-s);
 }
 
 #roadmap {
     list-style: none;
     counter-reset: step;
     display: grid;
-    gap: 1.5rem;
+    gap: var(--space-m);
 }
 
 @media (min-width: 48rem) {
@@ -304,7 +313,7 @@ a:hover {
 /* Bordered cards, shared by the roadmap and the proposal */
 #roadmap li, .card {
     margin: 0;
-    padding: 1.5rem;
+    padding: var(--space-m);
     border: var(--border-accent);
     border-radius: 1rem;
     font-size: var(--text-m);
@@ -317,7 +326,7 @@ a:hover {
 
 #roadmap li::before, .card-number {
     display: block;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-s);
     font-size: var(--text-l);
     font-weight: 700;
     color: var(--dusk-blue);
@@ -325,7 +334,7 @@ a:hover {
 
 .step-title {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-s);
     font-weight: 700;
 }
 
@@ -335,7 +344,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    margin: 5rem calc(50% - 50vw) 2.5rem;
+    margin: var(--space-l) calc(50% - 50vw);
 }
 
 @media (min-width: 48rem) {
@@ -347,7 +356,7 @@ a:hover {
 .panels > li {
     flex: 1;
     margin: 0;
-    padding: 4.5rem max(var(--gutter), (100vw - var(--page-width)) / 2);
+    padding: var(--space-l) max(var(--gutter), (100vw - var(--page-width)) / 2);
     color: var(--alabaster-grey);
     font-size: var(--text-m);
     line-height: 1.6;
@@ -357,7 +366,7 @@ a:hover {
 .panel-prussian { background: var(--prussian-blue); }
 
 .panels h3 {
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--space-s);
     font-size: var(--text-l);
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -366,29 +375,29 @@ a:hover {
 
 .panels p {
     font-size: inherit;
-    margin: 0 0 1.5rem;
+    margin: 0 0 var(--space-m);
 }
 
 /*.checklist {*/
-/*    margin: 0 0 1.5rem;*/
+/*    margin: 0 0 var(--space-m);*/
 /*    font-size: inherit;*/
 /*}*/
 
 .checklist li {
-    margin: 0 0 0.25rem;
+    margin: 0 0 calc(var(--space-s) / 2);
     font-size: var(--text-m);
 }
 
 .checklist li::before {
     content: "✓";
-    margin-right: 0.5em;
+    margin-right: var(--space-s);
     font-weight: 700;
 }
 
 /* Prussian blue would vanish on the Fund panel */
 /* In-page calls to action are larger than the nav's */
 :is(.panels, .proposal-summary) .cta, .proposal-print {
-    padding: 0.75rem 1.75rem;
+    padding: var(--space-s) var(--space-m);
     font-size: var(--text-l);
 }
 
@@ -404,12 +413,12 @@ a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem 4rem;
+    gap: var(--space-m) var(--space-l);
 }
 
 /* Avatars sit closer together than logos */
 .contributor-list:has(.contributor-avatar) {
-    gap: 1rem;
+    gap: var(--space-s);
 }
 
 .contributor-logo {
@@ -434,8 +443,8 @@ a:hover {
 /* Data preview mock-up */
 
 .mock {
-    margin-bottom: 2.5rem;
-    padding: 1.5rem;
+    margin-bottom: var(--space-m);
+    padding: var(--space-m);
     border-radius: 1rem;
     background: var(--prussian-blue);
     color: var(--alabaster-grey);
@@ -443,7 +452,7 @@ a:hover {
 
 .mock-label {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-s);
     font-size: var(--text-s);
     font-weight: 600;
     text-transform: uppercase;
@@ -453,7 +462,7 @@ a:hover {
 .mock-label code {
     font-family: var(--mono);
     font-size: var(--text-s);
-    padding: 0.15em 0.45em;
+    padding: 0 calc(var(--space-s) / 2);
     border-radius: 0.35em;
     background: var(--dusk-blue);
     color: var(--alabaster-grey);
@@ -470,7 +479,7 @@ a:hover {
 
 .mock th,
 .mock td {
-    padding: 0.75rem;
+    padding: var(--space-s);
     font-size: var(--text-m);
     text-align: left;
     border-bottom: 1px solid var(--lav-grey);
@@ -486,14 +495,14 @@ a:hover {
 
 .mock .cell-note {
     display: block;
-    margin-top: 0.35rem;
+    margin-top: calc(var(--space-s) / 2);
     font-size: var(--text-s);
     line-height: 1.4;
 }
 
 .status {
     display: inline-block;
-    padding: 0.15rem 0.6rem;
+    padding: calc(var(--space-s) / 2) var(--space-s);
     border-radius: var(--radius-pill);
     font-size: var(--text-s);
     font-weight: 600;
@@ -501,7 +510,7 @@ a:hover {
 }
 
 .status::before {
-    margin-right: 0.35em;
+    margin-right: calc(var(--space-s) / 2);
 }
 
 .status-yes             { background: #DCF2E3; color: #0B5A2A; }
@@ -514,13 +523,13 @@ a:hover {
 .status-na::before      { content: "–"; }
 
 .mock-note {
-    margin: 1rem 0 0;
+    margin: var(--space-m) 0 0;
     font-size: var(--text-s);
     line-height: 1.5;
 }
 
 .mock-json {
-    margin-top: 1.5rem;
+    margin-top: var(--space-m);
 }
 
 .mock-json summary {
@@ -529,7 +538,7 @@ a:hover {
 }
 
 .mock-json pre {
-    margin-top: 1rem;
+    margin-top: var(--space-s);
     overflow-x: auto;
     font-size: var(--text-m);
     line-height: 1.5;
@@ -543,13 +552,13 @@ a:hover {
 
 .update-list {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--space-m);
     max-width: 46rem;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-l);
 }
 
 .update-list .update-date {
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--space-s);
     font-size: var(--text-s);
 }
 
@@ -566,8 +575,8 @@ a:hover {
 .pagination-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    margin-bottom: 4rem;
+    gap: var(--space-s) var(--space-m);
+    margin-bottom: var(--space-l);
 }
 
 .pagination-list li {
@@ -582,16 +591,16 @@ a:hover {
 /* Update posts: the same type scale and patterns as the home and proposal pages */
 
 .post {
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-l);
 }
 
 .post .post-date {
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--space-s);
 }
 
 .post h1 {
     max-width: 15ch;
-    margin: 0 0 2.5rem;
+    margin: 0 0 var(--space-m);
     font-size: var(--text-display);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -600,7 +609,7 @@ a:hover {
 
 /* Section labels, as on the home page */
 .post h2 {
-    margin: 2rem 0 1rem;
+    margin: var(--space-l) 0 var(--space-s);
     font-size: var(--text-m);
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -608,10 +617,10 @@ a:hover {
 }
 
 .post h3 {
-    margin: 2.5rem 0 0.75rem;
+    margin: var(--space-m) 0 var(--space-s);
     font-size: var(--text-sm);
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
 }
 
@@ -621,12 +630,12 @@ a:hover {
 }
 
 .post p {
-    margin: 0 0 1.25rem;
+    margin: 0 0 var(--space-m);
 }
 
 .post :is(ol, ul) {
-    margin: 0 0 1.5rem;
-    padding-left: 1.5rem;
+    margin: 0 0 var(--space-m);
+    padding-left: var(--space-m);
 }
 
 .post ol {
@@ -638,11 +647,11 @@ a:hover {
 }
 
 .post li {
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--space-s);
 }
 
 .post li > :is(ol, ul) {
-    margin: 0.5rem 0 0;
+    margin: var(--space-s) 0 0;
 }
 
 .post strong {
@@ -653,15 +662,15 @@ a:hover {
     font-style: italic;
 }
 
-.post blockquote {
-    margin: 2rem 0 1rem;
-    padding-left: 1.5rem;
+.post blockquote, .quote blockquote {
+    margin: var(--space-m) 0;
+    padding-left: var(--space-m);
     border-left: 6px solid var(--dusk-blue);
 }
 
 /* Inline code, matching the table caption's code label */
 .post code {
-    padding: 0.1em 0.4em;
+    padding: 0 calc(var(--space-s) / 2);
     border-radius: 0.35em;
     background: var(--dusk-blue);
     color: var(--alabaster-grey);
@@ -676,7 +685,7 @@ a:hover {
 }
 
 .footnote {
-    margin-top: 3rem;
+    margin-top: var(--space-l);
     font-size: var(--text-s);
 }
 
@@ -711,7 +720,7 @@ a:hover {
 }
 
 .proposal section > .section-heading {
-    margin: 5rem 0 0.75rem;
+    margin: var(--space-l) 0 var(--space-s);
 }
 
 /* Full-bleed band; --edge is the distance from the screen edge to the page content */
@@ -720,7 +729,7 @@ a:hover {
     box-sizing: border-box;
     width: 100vw;
     margin-left: calc(-1 * var(--edge));
-    padding: 2.5rem var(--edge);
+    padding: var(--space-l) var(--edge);
     background: var(--prussian-blue);
     color: var(--alabaster-grey);
 }
@@ -728,11 +737,11 @@ a:hover {
 .proposal-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-    gap: 1.5rem;
+    gap: var(--space-m);
 }
 
 .proposal-stats dt {
-    margin-bottom: 0.25rem;
+    margin-bottom: calc(var(--space-s) / 2);
     font-size: var(--text-s);
     font-weight: 600;
     text-transform: uppercase;
@@ -749,8 +758,8 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem 1.5rem;
-    margin-top: 1.5rem;
+    gap: var(--space-s) var(--space-m);
+    margin-top: var(--space-m);
 }
 
 .proposal-print {
@@ -769,22 +778,22 @@ a:hover {
 }
 
 .proposal-toc {
-    margin-top: 2.5rem;
+    margin-top: var(--space-l);
 }
 
 .proposal-toc .section-heading {
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--space-s);
 }
 
 .proposal-toc li {
-    margin: 0 0 0.25rem;
+    margin: 0 0 calc(var(--space-s) / 2);
     font-size: var(--text-m);
 }
 
 /* Drop cap: the figure sits beside the first lines of its sentence */
 .proposal-stat strong {
     float: left;
-    margin: 0.05em 0.15em 0 0;
+    margin: 0 var(--space-s) 0 0;
     font-size: var(--text-display);
     font-weight: 800;
     letter-spacing: -0.03em;
@@ -800,8 +809,8 @@ a:hover {
 /* Grids of cards: quotes, team, deliverables */
 .card-grid {
     display: grid;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: var(--space-m);
+    margin-bottom: var(--space-m);
 }
 
 @media (min-width: 48rem) {
@@ -811,11 +820,10 @@ a:hover {
 }
 
 .card p {
-    margin: 0 0 1rem;
+    margin: 0 0 var(--space-s);
     font-size: inherit;
 }
 
-/* Pull quotes: large type opened by an oversized quotation mark */
 /*.quotes {*/
 /*    display: grid;*/
 /*    gap: 3rem;*/
@@ -828,39 +836,18 @@ a:hover {
 /*    }*/
 /*}*/
 
-.quote blockquote::before {
-    content: "“" / "";
-    display: block;
-    height: 2.5rem;
-    font-size: var(--text-display);
-    font-weight: 800;
-    line-height: 1;
-    color: var(--dusk-blue);
-}
-
-.proposal .quote blockquote p {
-    margin-bottom: 1rem;
-    font-size: var(--text-l);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-}
-
+/* Quotes share the update posts' blockquote style */
 .quote figcaption {
+    margin-bottom: var(--space-m);
     font-size: var(--text-m);
     line-height: 1.5;
-    margin-bottom: 1.5rem;
-}
-
-.quote figcaption::before {
-    content: "— ";
 }
 
 /* Team: solid profiles, distinct from the bordered deliverable cards */
 .profiles {
     display: grid;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
+    gap: var(--space-m);
+    margin-bottom: var(--space-m);
 }
 
 @media (min-width: 48rem) {
@@ -871,7 +858,7 @@ a:hover {
 
 .profiles > li {
     margin: 0;
-    padding: 2rem;
+    padding: var(--space-m);
     border-radius: 1rem;
     background: color-mix(in srgb, var(--lav-grey) 50%, var(--alabaster-grey));
     font-size: var(--text-m);
@@ -879,7 +866,7 @@ a:hover {
 }
 
 .proposal .profile-role {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-s);
     font-size: var(--text-s);
     font-weight: 600;
     text-transform: uppercase;
@@ -893,7 +880,7 @@ a:hover {
 
 .deliverable-status {
     display: inline-block;
-    padding: 0.15rem 0.6rem;
+    padding: calc(var(--space-s) / 2) var(--space-s);
     border: 1px solid var(--dusk-blue);
     border-radius: var(--radius-pill);
     color: var(--dusk-blue);
@@ -913,29 +900,29 @@ a:hover {
 }
 
 .proposal details {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-s);
     font-size: var(--text-m);
 }
 
 .proposal details[open] summary {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-s);
 }
 
 .proposal details :is(li, p) {
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--space-s);
     font-size: var(--text-m);
     line-height: 1.6;
 }
 
 .proposal details h4 {
-    margin: 1.25rem 0 0.5rem;
+    margin: var(--space-m) 0 var(--space-s);
     font-size: var(--text-m);
     font-weight: 700;
 }
 
 .funder-note {
     max-width: 14rem;
-    margin: 0.75rem auto 0;
+    margin: var(--space-s) auto 0;
     font-size: var(--text-s);
     line-height: 1.5;
     text-align: center;
@@ -968,7 +955,7 @@ a:hover {
 
 /* Bulleted lists in the scope section */
 #scope ul {
-    padding-left: 1.5rem;
+    padding-left: var(--space-m);
     list-style: disc;
 }
 

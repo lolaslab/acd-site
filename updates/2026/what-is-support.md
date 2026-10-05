@@ -40,20 +40,31 @@ So if we use `<button>` as an example, none of the following would be accessibil
 4. An assistive technology not reading the correct role for the button
 5. An assistive technology not interpreting the "disabled" attribute for a disabled button
 
+## Web Platform Features And web-features
+
+The scope of the first part of ACD is to test HTML web-features and web platform features. web-features is the shared catalogue 
+of  web platform features as defined by Baseline. The definitions are usually according to one or more specifications 
+and it means that "button" means the same thing in BCD, Baseline and WPT. ARIA-AT doesn't use the web-feature catalogue
+yet so in that context, we're writing tests for the HTML web platform features.
+
+HTML is the best place to start since many of the web platform features are very well established but because they're
+assumed to *just work*, test coverage for them isn't as robust as other parts of the platform. And as many accessibility
+experts know, sometimes they have their quirks.
+
 ## Test Suites
 
-The best test suites to understand how web-features work in browsers and assistive technologies are WPT and ARIA-AT
-respectively. They have hundreds, and in some cases thousands, of tests that measure how well (or not) a web-feature is
-implemented according to the feature's specification.
+The best test suites to understand how web platform features work in browsers and assistive technologies are WPT and ARIA-AT
+respectively. They have hundreds, and in some cases thousands, of tests that measure how well (or not) a web platform 
+feature is implemented according to the feature's specification.
 
 ### Why Not BCD?
 
 If you visit MDN or CanIUse, you may be familiar with the browser compatibility table. This table pulls in data from
 Browser Compatibility Data (BCD). This data is what Baseline also uses to compute when features are widely available.
-The BCD collector looks at the WebIDL<sup><a href="#fn1" id="fnref1">1</a></sup> for a web-feature, creates the
-web-feature in the browser and compares the created feature with the specified WebIDL to make sure they match. This
-works for BCD's use case: you can assume that if the WebIDL and the DOM element match, the web-feature is likely
-supported in that browser. There's more testing to confirm this, but that's the gist.
+The BCD collector looks at the WebIDL for a web-feature, creates the web-feature in the browser and compares the 
+created feature with the specified WebIDL to make sure they match. This works for BCD's use case: you can assume that 
+if the WebIDL and the DOM element match, the web-feature is likely supported in that browser. There's more testing to 
+confirm this, but that's the gist.
 
 For accessibility, this doesn't work because it tells us very little about the behaviour of the web-feature. If we go
 back to our button example, BCD wouldn't be able to tell us if the button had the correct native role because the [WebIDL
@@ -76,13 +87,13 @@ This is how I'm proposing we do it:
 1. All tests in WPT for a given web-feature are included except:
    - tentative tests, infrastructure failures, timeouts, etc.
    - tests without user impact and disputed tests
-2. All ARIA-AT tests for a given web-feature are included except:
+2. All ARIA-AT tests for a given web platform feature are included except:
    - SHOULD behaviours
    - disputed tests
 
 This proposal isn't confirmed, and what we really need is input from you — test writers, developers, accessibility
 experts — to help us refine this. We have some outstanding questions:
-1. How do we tell when a web-feature's tests are complete?
+1. How do we tell when a web platform feature's tests are complete?
 2. Should we include all tests by default?
 3. Should we exclude unspecified behaviour? We currently include it if it's what users expect. For example,
    Firefox doesn't clear `:active` on Tab in the `active-onblur` WPTs. That behaviour isn't in the spec, but
@@ -95,6 +106,3 @@ experts — to help us refine this. We have some outstanding questions:
 I'm running a [breakout session](https://github.com/w3c/tpac2026-breakouts/issues/3) at this year's TPAC, W3C's annual
 conference, to discuss this. It's open to everyone, not just TPAC attendees, and you can join remotely. If you have
 thoughts, opinions or questions, join us! Date and time to be confirmed.
-
-<p class="footnote" id="fn1">1. WebIDL defines the interface for an API or web-feature. It specifies the data types,
-methods, properties and attributes for the feature. <a href="#fnref1" aria-label="Back to text">↩</a></p>
