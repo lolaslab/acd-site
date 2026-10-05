@@ -670,23 +670,19 @@ a:hover {
 }
 
 /* Pull quotes: large type opened by an oversized quotation mark */
-.quotes {
-    display: grid;
-    gap: 3rem;
-    margin: 3rem 0;
-}
+/*.quotes {*/
+/*    display: grid;*/
+/*    gap: 3rem;*/
+/*    margin: 3rem 0;*/
+/*}*/
 
-@media (min-width: 48rem) {
-    .quotes {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
+/*@media (min-width: 48rem) {*/
+/*    .quotes {*/
+/*        grid-template-columns: repeat(2, minmax(0, 1fr));*/
+/*    }*/
+/*}*/
 
-.quotes > li {
-    margin: 0;
-}
-
-.quotes blockquote::before {
+.quote blockquote::before {
     content: "“" / "";
     display: block;
     height: 2.5rem;
@@ -696,7 +692,7 @@ a:hover {
     color: var(--dusk-blue);
 }
 
-.proposal .quotes blockquote p {
+.proposal .quote blockquote p {
     margin-bottom: 1rem;
     font-size: var(--text-l);
     font-weight: 800;
@@ -704,12 +700,13 @@ a:hover {
     line-height: 1.3;
 }
 
-.quotes figcaption {
-    font-size: var(--text-s);
+.quote figcaption {
+    font-size: var(--text-m);
     line-height: 1.5;
+    margin-bottom: 1.5rem;
 }
 
-.quotes figcaption::before {
+.quote figcaption::before {
     content: "— ";
 }
 

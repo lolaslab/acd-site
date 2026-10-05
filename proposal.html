@@ -35,48 +35,42 @@ title: ACD - Funding proposal
             <li><a href="#deliverables">Deliverables</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#scope">Scope and administration</a></li>
-            <li><a href="#contact">Fund the work</a></li>
+            <li><a href="#contact">Fund the Work</a></li>
             <li><a href="#funders">Previous and current funders</a></li>
         </ol>
     </nav>
 
     <section id="problem">
         <h2 class="section-heading">The problem</h2>
-        <p>The aim of the ACD project is to produce web accessibility data for use in developer tooling, documentation,
-            and AI skills and training.</p>
-        <p>Over the last year, a series of workshops proved the need for interoperable accessibility support data. We
-            built a demo of the ACDC that pulls in results from WPT and an accessibility dataset source (currently
-            provided by Tetralogical, but subject to change) and computes support data from the combined results.</p>
-        <p>That data isn't usable yet. To understand how best to integrate with developer tools, we need real support
-            data for HTML web-features: complete browser and AT tests, a support status computed from their results,
-            and machine-readable output. The owners of Baseline and BCD have confirmed this work is a crucial precursor
+        <p>The aim of the ACD project is to produce web accessibility data for use in developer tooling, documentation
+            and AI systems.</p>
+        <p>In 2025, a series of workshops proved the need for interoperable accessibility support data. We
+            built a proof of concept for a tool that pulls in results from WPT and an accessibility dataset source
+            (provided by Tetralogical) and computes support data from the combined results.</p>
+        <p>The proof of concept showed what’s possible, and what needs work. We’ve spent 2026 working out what needs to
+            improve. To integrate with developer tools, the test suites need to be robust and specific. That means
+            complete browser and AT tests, a support status computed from their results, and machine-readable output. The owners of Baseline and BCD have confirmed this work is a crucial precursor
             to integrating with both.</p>
     </section>
 
     <section id="demand">
         <h2 class="section-heading">Why it matters now</h2>
-        <p>Both BCD and Baseline have put accessibility data on their 2026 roadmaps, and Baseline’s governing group
-            has said it is “hoping to fill that gap by collaborating with Lola Odelola”
+        <p>The owners of BCD and Baseline have put accessibility data on their 2026 roadmap,
+            and Baseline’s governing group has said it is “hoping to fill that gap by collaborating with [ACD]”
             (<a href="http://piccalil.li/blog/perfecting-baseline/">Perfecting Baseline</a>).</p>
         <p class="proposal-stat"><strong>30%</strong> of web developers in our May 2026 MDN survey believe Baseline
-            “Widely available” includes accessibility. It doesn't.</p>
-        <ul class="quotes" role="list">
-            <li>
-                <figure>
-                    <blockquote><p>[ACD is] the kind of data that could one day complement Baseline.</p></blockquote>
-                    <figcaption>Samsung Internet Developer Relations ·
-                        <a href="http://medium.com/samsung-internet-dev/baseline-a-feature-adoption-strategy-for-the-web-3a2e1efbb0b8">Baseline: a feature adoption strategy for the web</a></figcaption>
-                </figure>
-            </li>
-            <li>
-                <figure>
-                    <blockquote><p>[ACD is] a larger accessibility effort than Baseline offers.</p></blockquote>
-                    <figcaption>Sara Soueidan and Adrian Roselli, accessibility consultants</figcaption>
-                </figure>
-            </li>
-        </ul>
+            “Widely available” includes accessibility. It doesn’t.</p>
+        <figure class="quote">
+            <blockquote><p>[ACD is] the kind of data that could one day complement Baseline.</p></blockquote>
+            <figcaption>Samsung Internet Developer Relations ·
+                <a href="http://medium.com/samsung-internet-dev/baseline-a-feature-adoption-strategy-for-the-web-3a2e1efbb0b8">Baseline: a feature adoption strategy for the web</a></figcaption>
+        </figure>
         <p>Developers feel the gap too. Michael Fürstenberg wrote that it’s hard to tell whether an issue is a browser
             problem or an AT problem, and asked for “an up to date list of supported aria attributes per browser.”</p>
+        <figure class="quote">
+            <blockquote><p>[ACD is] a larger accessibility effort than Baseline offers.</p></blockquote>
+            <figcaption>Sara Soueidan and Adrian Roselli, accessibility experts</figcaption>
+        </figure>
         <p>Adrian Roselli’s widely read post,
             <a href="http://adrianroselli.com/2023/12/baseline-does-not-really-cover-baseline-support.html">Baseline Does Not Really Cover Baseline Support</a>,
             documents that Baseline excludes accessibility support entirely and encourages readers to support ACD.
@@ -97,7 +91,7 @@ title: ACD - Funding proposal
                 <span class="card-number">{{ d.id }}</span>
                 <h3 class="step-title">{{ d.title }}</h3>
                 {%- if d.fundedBy %}
-                <p class="deliverable-status deliverable-status-funded">Funded by {{ d.fundedBy }} · in progress</p>
+                <p class="deliverable-status deliverable-status-funded">Funded by {{ d.fundedBy }} · In Progress</p>
                 {%- else %}
                 <p class="deliverable-status">Seeking funding · {{ d.cost | usd }}</p>
                 {%- endif %}
@@ -135,10 +129,11 @@ title: ACD - Funding proposal
             </li>
             <li>
                 <h3>Cynthia Shelly</h3>
-                <p class="profile-role">Editor, Core-AAM</p>
-                <p>25 years in web accessibility, including 20 as Microsoft’s and Google’s representative to W3C
-                    accessibility standards groups. She was a major driver of the HTML-AAM and Core-AAM specifications
-                    this work tests against.</p>
+                <p class="profile-role">Co-Founder, Scaled A11y · Editor, Core-AAM</p>
+                <p>Cynthia co-founded of Scaled A11y accessibility consultancy after 25 years in web accessibility,
+                    including 20 as Microsoft’s and Google’s representative to W3C accessibility standards groups.
+                    She was a major driver of the HTML-AAM and Core-AAM specifications this work tests against,
+                    and continues to serve as Editor for the Core-AAM.</p>
             </li>
         </ul>
     </section>
@@ -148,9 +143,9 @@ title: ACD - Funding proposal
         <details>
             <summary>In scope</summary>
             <ul role="list">
-                <li>Writing Web Platform Tests to fill in gaps</li>
+                <li>Writing Web Platform Tests to fill in the gaps</li>
                 <li>Writing ARIA-AT tests to fill in the gaps</li>
-                <li>Reorganising WPT to be more reflective of specifications being tested</li>
+                <li>Reorganising WPT to better reflect the specifications being tested</li>
                 <li>Building a decision framework to map incoming data to support statuses</li>
             </ul>
         </details>

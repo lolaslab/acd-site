@@ -13,7 +13,7 @@
           ],
           [
             "AC1.2",
-            "New tests have been written for as many gaps identified as feasible within project scope, with any unfilled gaps documented and justified by the ACD team."
+            "New tests have been written for as many of the identified gaps as feasible within project scope, with any unfilled gaps documented and justified by the ACD team."
           ],
           [
             "AC1.3",
@@ -31,7 +31,7 @@
     "id": "D2",
     "title": "HTML web-features ARIA-AT tests",
     "objective": "Fill in test gaps in ARIA-AT. We will expand the ARIA-AT test suite to include tests for HTML web-features.",
-    "fundedBy": "Sovereign Tech Fund"
+    "fundedBy": "the Sovereign Tech Fund"
   },
   {
     "id": "D3",
@@ -71,7 +71,7 @@
           ],
           [
             "AC3.8",
-            "Documentation is published, including technical spec for API implementation and developer docs for API usage."
+            "Documentation is published, including a technical spec for API implementation and developer docs for API usage."
           ]
         ]
       }
@@ -88,7 +88,7 @@
         "items": [
           [
             "AC4.1.1",
-            "The framework defines explicit mapping rules for all WPT results supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported, and Unknown."
+            "The framework defines explicit mapping rules for all WPT results supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported and Unknown."
           ],
           [
             "AC4.1.2",
@@ -100,7 +100,7 @@
           ],
           [
             "AC4.1.4",
-            "The framework is documented in a written document that is human-readable and reviewable by stakeholders."
+            "The framework is documented in a human-readable document that stakeholders can review."
           ],
           [
             "AC4.1.5",
@@ -121,7 +121,7 @@
         "items": [
           [
             "AC4.2.1",
-            "The framework defines explicit mapping rules for all ARIA-AT data inputs supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported, and Unknown."
+            "The framework defines explicit mapping rules for all ARIA-AT data inputs supported by the ACD Collector at the time of implementation, mapping each to one of the four ACD support status values: Supported, Partial Support, Not Supported and Unknown."
           ],
           [
             "AC4.2.2",
@@ -133,7 +133,7 @@
           ],
           [
             "AC4.2.4",
-            "The framework is documented in a written document that is human-readable and reviewable by stakeholders."
+            "The framework is documented in a human-readable document that stakeholders can review."
           ],
           [
             "AC4.2.5",
@@ -158,7 +158,7 @@
           ],
           [
             "AC4.3.2",
-            "The JSON output includes support status broken down per browser/assistive technology combination."
+            "The JSON output includes support status broken down per browser and assistive technology combination."
           ],
           [
             "AC4.3.3",
@@ -170,7 +170,7 @@
           ],
           [
             "AC4.3.5",
-            "The JSON output is structured so that it can be consumed by MDN, Can I Use, and Baseline."
+            "The JSON output is structured so that it can be consumed by MDN, CanIUse and Baseline."
           ],
           [
             "AC4.3.6",
