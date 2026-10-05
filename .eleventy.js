@@ -25,6 +25,11 @@ module.exports = function(eleventyConfig) {
     // Format a number as US dollars, e.g. 45900 → $45,900
     eleventyConfig.addFilter("usd", (value) => `$${Number(value).toLocaleString("en-US")}`);
 
+    // Post dates, e.g. 5 October 2026, and their machine-readable form
+    eleventyConfig.addFilter("readableDate", (date) =>
+        date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }));
+    eleventyConfig.addFilter("isoDate", (date) => date.toISOString().slice(0, 10));
+
     // Newest date in the collection
     eleventyConfig.addFilter('collectionLastUpdatedDate', (collection) => {
         if (!collection?.length) {

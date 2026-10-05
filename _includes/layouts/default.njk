@@ -3,6 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{{ title }}</title>
+        {%- if canonical_url %}
+        <link rel="canonical" href="{{ canonical_url }}">
+        {%- endif %}
+        {%- if social_img %}
+        <meta property="og:title" content="{{ title }}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ env.BASE_URL + page.url }}">
+        <meta property="og:description" content="{{ description }}">
+        <meta property="og:image" content="{{ social_img }}">
+        <meta property="og:image:alt" content="The title of the post against a colourful background">
+        {%- endif %}
         <link rel="stylesheet" href="/css/styles.css">
         <script src="/js/terms.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
