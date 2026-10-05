@@ -109,7 +109,11 @@ a {
 }
 
 a:hover {
-    font-weight: 900;
+    color: var(--prussian-blue);
+}
+
+.a-ondark:hover {
+    color: color-mix(in srgb, var(--lav-grey) 60%, var(--alabaster-grey));
 }
 
 strong {
@@ -210,6 +214,10 @@ summary {
     font-weight: 600;
 }
 
+.nav-list-item a:hover {
+    color: var(--prussian-blue);
+}
+
 /* Pill-shaped calls to action */
 .cta {
     display: inline-block;
@@ -220,8 +228,13 @@ summary {
 }
 
 .cta:hover {
-    font-weight: 600;
     background: var(--prussian-blue);
+    color: var(--alabaster-grey);
+}
+
+.nav-list-item .cta:hover {
+    background: var(--prussian-blue);
+    color: var(--alabaster-grey);
 }
 
 #logo-word-mark {
