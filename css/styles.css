@@ -513,14 +513,14 @@ a:hover {
     margin-right: calc(var(--space-s) / 2);
 }
 
-.status-yes             { background: #DCF2E3; color: #0B5A2A; }
-.status-yes::before     { content: "✓"; }
-.status-partial         { background: #FFF1CC; color: #6B4A00; }
-.status-partial::before { content: "◐"; }
-.status-no              { background: #FBE0E0; color: #8A1C1C; }
-.status-no::before      { content: "✕"; }
-.status-na              { color: var(--alabaster-grey); border: 1px dashed var(--lav-grey); }
-.status-na::before      { content: "–"; }
+.status-yes                 { background: #DCF2E3; color: #0B5A2A; }
+.status-yes::before         { content: "✓"; }
+.status-partial             { background: #FFF1CC; color: #6B4A00; }
+.status-partial::before     { content: "◐"; }
+.status-no                  { background: #FBE0E0; color: #8A1C1C; }
+.status-no::before          { content: "✕"; }
+.status-untested            { color: var(--alabaster-grey); border: 1px dashed var(--lav-grey); }
+.status-untested::before    { content: "–"; }
 
 .mock-note {
     margin: var(--space-m) 0 0;

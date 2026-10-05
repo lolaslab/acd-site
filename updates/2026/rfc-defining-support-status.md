@@ -1,13 +1,16 @@
 ---
 tags: updates
 layout: layouts/update.njk
-heading: What Is Support?
-title: ACD - What Is Support?
-description: "Why “supported” doesn’t mean “accessible”, how ACD defines accessibility support, and a proposed framework for working it out."
-permalink: /updates/what-is-support/
+heading: "RFC: Defining Support Status in ACD"
+title: "ACD - RFC: Defining Support in ACD"
+description: "Reviewing how support is computed in popular test suites, and proposing a support status framework for ACD"
+permalink: /updates/rfc-support-status/
+social_img: /images/updates/rfc-support-status.png
+social_img_alt: "RFC: Defining Support Status in ACD. 
+Four status labels: Supported, Partial, Unsupported and Not tested."
 date: 2026-10-05
 ---
-# What Is Support?
+# RFC: Defining Support Status in ACD
 
 Accessibility support is tricky for many reasons, but one of the main ones is that "support" is often interpreted
 as "accessible". Developers can read a green "supported" status and take that to mean that whatever they're building is
