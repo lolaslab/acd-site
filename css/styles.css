@@ -447,7 +447,13 @@ summary {
 }
 
 #scaled-a11y {
-    max-width: 6em;
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+#scaled-a11y .contributor-logo{
+    max-width: 3em;
 }
 
 .contributor-avatar {
