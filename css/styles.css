@@ -66,6 +66,11 @@ table {
     --text-m: 1.125rem;
     --text-l: 1.375rem;
     --text-display: clamp(2.5rem, 6vw, 4rem);
+    --weight-regular: 400;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-extrabold: 800;
+    --weight-black: 900;
 
     /* Spacing */
     --space-s: 0.5rem;
@@ -100,17 +105,14 @@ p, ol, ul, li {
 
 a {
     color: var(--berry);
-    text-decoration: underline;
 }
 
 a:hover {
     color: var(--prussian-blue);
 }
 
-
-
 strong {
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 em {
@@ -119,7 +121,7 @@ em {
 
 summary {
     cursor: pointer;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
 }
 
 /* Keyboard focus: inky ring on light backgrounds, alabaster on dark ones */
@@ -172,7 +174,7 @@ summary {
     background: var(--prussian-blue);
     color: var(--alabaster-grey);
     font-size: var(--text-s);
-    font-weight: 400;
+    font-weight: var(--weight-regular);
     line-height: 1.5;
     text-align: left;
 }
@@ -180,7 +182,6 @@ summary {
 .term-tip strong {
     display: block;
     margin-bottom: calc(var(--space-s) / 2);
-    font-weight: 700;
 }
 
 .term:is(:hover, :focus-within):not([data-dismissed]) .term-tip,
@@ -204,11 +205,7 @@ summary {
 
 .nav-list-item a, .cta {
     text-decoration: none;
-    font-weight: 600;
-}
-
-.nav-list-item a:hover {
-    color: var(--prussian-blue);
+    font-weight: var(--weight-semibold);
 }
 
 /* Pill-shaped calls to action */
@@ -225,16 +222,11 @@ summary {
     color: var(--alabaster-grey);
 }
 
-.nav-list-item .cta:hover {
-    background: var(--prussian-blue);
-    color: var(--alabaster-grey);
-}
-
 #logo-word-mark {
     width: min-content;
     margin: 0 auto 0 0;
     font-size: var(--text-m);
-    font-weight: 900;
+    font-weight: var(--weight-black);
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -258,7 +250,7 @@ summary {
 /* Headings */
 
 .title, .post h1 {
-    font-weight: 800;
+    font-weight: var(--weight-extrabold);
     font-size: var(--text-display);
     letter-spacing: -0.02em;
     line-height: 1;
@@ -275,7 +267,7 @@ summary {
     font-size: var(--text-m);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
 }
 
 :is(#developers, #funders) .section-heading {
@@ -306,7 +298,7 @@ summary {
 }
 
 /* Labels that lead straight into their content */
-#plan .section-heading, .panels .section-heading {
+#plan .section-heading, .panels .section-heading, .proposal-toc .section-heading {
     margin: 0 0 var(--space-s);
 }
 
@@ -326,32 +318,35 @@ summary {
     counter-increment: step;
 }
 
-/* Bordered cards, shared by the roadmap and the proposal */
-#roadmap li, .card {
+/* Cards: bordered for the roadmap and deliverables, solid for team profiles */
+#roadmap li, .card, .profiles > li {
     margin: 0;
     padding: var(--space-m);
-    border: var(--border-accent);
     border-radius: 1rem;
     font-size: var(--text-m);
     line-height: 1.6;
 }
 
-#roadmap li::before {
+#roadmap li, .card {
+    border: var(--border-accent);
+}
+
+#roadmap li::before, .post-cta li::before {
     content: counter(step, decimal-leading-zero);
 }
 
-#roadmap li::before, .card-number {
+#roadmap li::before, .post-cta li::before, .card-number {
     display: block;
     margin-bottom: var(--space-s);
     font-size: var(--text-l);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
     color: var(--dusk-blue);
 }
 
 .step-title {
     display: block;
     margin-bottom: var(--space-s);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 /* Full-bleed panels whose content lines up with the page */
@@ -384,14 +379,13 @@ summary {
 .panels h3 {
     margin-bottom: var(--space-s);
     font-size: var(--text-l);
-    font-weight: 800;
+    font-weight: var(--weight-extrabold);
     letter-spacing: -0.01em;
     line-height: 1.2;
 }
 
 .panels p {
     font-size: inherit;
-    margin: 0 0 var(--space-m);
 }
 
 .checklist li {
@@ -402,12 +396,11 @@ summary {
 .checklist li::before {
     content: "✓";
     margin-right: var(--space-s);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 /* In-page calls to action are larger than the nav's */
 :is(.panels, .proposal-summary) .cta, .proposal-print {
-    padding: var(--space-s) var(--space-m);
     font-size: var(--text-l);
 }
 
@@ -419,7 +412,6 @@ summary {
 
 .panels .panel-prussian p a {
     color: var(--berry-light);
-    text-decoration: underline;
 }
 
 .panels .panel-prussian p a:hover {
@@ -471,13 +463,17 @@ summary {
     color: var(--alabaster-grey);
 }
 
+/* Small uppercase labels */
+.mock-label, .proposal-stats dt, .proposal .profile-role {
+    font-size: var(--text-s);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
 .mock-label {
     display: inline-block;
     margin-bottom: var(--space-s);
-    font-size: var(--text-s);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
 }
 
 /* Inline code chips */
@@ -512,7 +508,7 @@ summary {
 }
 
 .mock thead th {
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 .mock .cell-note {
@@ -527,7 +523,7 @@ summary {
     padding: calc(var(--space-s) / 2) var(--space-s);
     border-radius: var(--radius-pill);
     font-size: var(--text-s);
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     white-space: nowrap;
 }
 
@@ -571,12 +567,15 @@ summary {
     margin-bottom: var(--space-l);
 }
 
-.post-list .post-date {
+.post-date {
     margin: 0 0 var(--space-s);
+}
+
+.post-list .post-date {
     font-size: var(--text-s);
 }
 
-.card > :last-child {
+.card > :last-child, .post-cta > :last-child {
     margin-bottom: 0;
 }
 
@@ -593,17 +592,13 @@ summary {
 }
 
 .pagination-list [aria-current] {
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 /* individual post: the same type scale and patterns as the home and proposal pages */
 
 .post {
     margin-bottom: var(--space-l);
-}
-
-.post .post-date {
-    margin: 0 0 var(--space-s);
 }
 
 /* Section labels, as on the home page */
@@ -614,7 +609,7 @@ summary {
 .post h3 {
     margin: var(--space-m) 0 var(--space-s);
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     letter-spacing: 0.10em;
     text-transform: uppercase;
 }
@@ -624,12 +619,7 @@ summary {
     font-size: var(--text-m);
 }
 
-.post p {
-    margin: 0 0 var(--space-m);
-}
-
 .post :is(ol, ul) {
-    margin: 0 0 var(--space-m);
     padding-left: var(--space-m);
 }
 
@@ -655,6 +645,44 @@ summary {
     border-left: 6px solid var(--dusk-blue);
 }
 
+/* End-of-post call to action, edged in berry to match the other calls to action */
+.post-cta {
+    width: fit-content;
+    margin: var(--space-l) 0;
+    padding: var(--space-m);
+    border: .3em solid var(--berry);
+    border-radius: 1rem;
+}
+
+.post .post-cta h2 {
+    margin-top: 0;
+}
+
+/* Numbered like the roadmap steps, in berry */
+.post .post-cta ol {
+    counter-reset: step;
+    display: grid;
+    gap: var(--space-m);
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Side by side on wider screens, stacked on smaller ones */
+@media (min-width: 48rem) {
+    .post .post-cta ol {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.post .post-cta li {
+    counter-increment: step;
+    margin: 0;
+}
+
+.post-cta li::before {
+    color: var(--berry);
+}
+
 /* Funding proposal */
 
 /* Type scale: 14px labels, 18px body, 22px lead and card headings */
@@ -664,7 +692,7 @@ summary {
 
 .card-grid .step-title, .profiles h3, .post-list .step-title {
     font-size: var(--text-l);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
     line-height: 1.3;
 }
 
@@ -696,15 +724,11 @@ summary {
 
 .proposal-stats dt {
     margin-bottom: calc(var(--space-s) / 2);
-    font-size: var(--text-s);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
 }
 
 .proposal-stats dd {
     font-size: var(--text-l);
-    font-weight: 800;
+    font-weight: var(--weight-extrabold);
     line-height: 1.3;
 }
 
@@ -717,12 +741,13 @@ summary {
 }
 
 .proposal-print {
+    padding: var(--space-s) var(--space-m);
     border: 1px solid currentColor;
     border-radius: var(--radius-pill);
     background: none;
     color: inherit;
     font-family: inherit;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     cursor: pointer;
 }
 
@@ -735,10 +760,6 @@ summary {
     margin-top: var(--space-l);
 }
 
-.proposal-toc .section-heading {
-    margin: 0 0 var(--space-s);
-}
-
 .proposal-toc li {
     margin: 0 0 calc(var(--space-s) / 2);
     font-size: var(--text-m);
@@ -749,7 +770,7 @@ summary {
     float: left;
     margin: 0 var(--space-s) 0 0;
     font-size: var(--text-display);
-    font-weight: 800;
+    font-weight: var(--weight-extrabold);
     letter-spacing: -0.03em;
     line-height: 0.95;
 }
@@ -761,14 +782,14 @@ summary {
 }
 
 /* Grids of cards: quotes, team, deliverables */
-.card-grid {
+.card-grid, .profiles {
     display: grid;
     gap: var(--space-m);
     margin-bottom: var(--space-m);
 }
 
 @media (min-width: 48rem) {
-    .card-grid {
+    .card-grid, .profiles {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
@@ -778,7 +799,7 @@ summary {
     font-size: inherit;
 }
 
-/* Quotes share the individual post's' blockquote style */
+/* Quotes share the individual post's blockquote style */
 .quote figcaption {
     margin-bottom: var(--space-m);
     font-size: var(--text-m);
@@ -786,33 +807,12 @@ summary {
 }
 
 /* Team: solid profiles, distinct from the bordered deliverable cards */
-.profiles {
-    display: grid;
-    gap: var(--space-m);
-    margin-bottom: var(--space-m);
-}
-
-@media (min-width: 48rem) {
-    .profiles {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
 .profiles > li {
-    margin: 0;
-    padding: var(--space-m);
-    border-radius: 1rem;
     background: color-mix(in srgb, var(--lav-grey) 50%, var(--alabaster-grey));
-    font-size: var(--text-m);
-    line-height: 1.6;
 }
 
 .proposal .profile-role {
     margin-bottom: var(--space-s);
-    font-size: var(--text-s);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
 }
 
 .profiles p {
@@ -838,7 +838,7 @@ summary {
 .proposal details h4 {
     margin: var(--space-m) 0 var(--space-s);
     font-size: var(--text-m);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
 }
 
 @media print {
