@@ -106,9 +106,18 @@ experts — to help us refine this. We have some outstanding questions:
 5. What should a browser with no ARIA-AT coverage show? Is "Not tested" the best way to communicate that
    to developers?
 
-I'm running a [breakout session](https://github.com/w3c/tpac2026-breakouts/issues/3) at this year's TPAC, W3C's annual
-conference, to discuss this. It's open to everyone, not just TPAC attendees, and you can join remotely. If you have
-thoughts, opinions or questions, join us! Date and time to be confirmed.
+<aside class="post-cta">
 
-If you're unable to attend the breakout, you can leave your thoughts and comments on our 
-[GitHub discussion for this post](https://github.com/lolaslab/acd-site/discussions/1).
+## Get involved
+
+We'd love your input on this, and there are two ways to get involved:
+
+1. Join the [GitHub discussion for this post](https://github.com/lolaslab/acd-site/discussions/1). Tell us what you
+   think of the proposal, answer any of our questions, or ask your own.
+2. Join the [breakout session](https://github.com/w3c/tpac2026-breakouts/issues/3) Cynthia Shelly and I are running at
+   the W3C's annual conference, TPAC. It's open to everyone, not just TPAC attendees, and you can join remotely.
+
+The date and time of the breakout are still to be confirmed. We'll add them to the discussion and the breakout issue
+once we have them. If you can't make it, we'll post a summary to the discussion afterwards.
+
+</aside>
