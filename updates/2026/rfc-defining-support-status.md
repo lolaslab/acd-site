@@ -109,3 +109,6 @@ experts — to help us refine this. We have some outstanding questions:
 I'm running a [breakout session](https://github.com/w3c/tpac2026-breakouts/issues/3) at this year's TPAC, W3C's annual
 conference, to discuss this. It's open to everyone, not just TPAC attendees, and you can join remotely. If you have
 thoughts, opinions or questions, join us! Date and time to be confirmed.
+
+If you're unable to attend the breakout, you can leave your thoughts and comments on our 
+[GitHub discussion for this post](https://github.com/lolaslab/acd-site/discussions/1).
