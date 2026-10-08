@@ -1,27 +1,27 @@
 ---
 layout: layouts/default.njk
-title: ACD - Updates
+title: ACD - Posts
 pagination:
-    data: collections.updates
+    data: collections.posts
     size: 5
-    alias: updates
+    alias: posts
     reverse: true
 
 ---
-<h1 class="title">Updates</h1>
+<h1 class="title">Posts</h1>
 
-<ol class="update-list" role="list">
-    {%- for update in updates %}
+<ol class="post-list" role="list">
+    {%- for post in posts %}
     <li class="card">
-        <p class="section-heading update-date"><time datetime="{{ update.date | isoDate }}">{{ update.date | readableDate }}</time></p>
-        <h2 class="step-title"><a href="{{ update.url }}">{{ update.data.heading }}</a></h2>
-        <p>{{ update.data.description }}</p>
+        <p class="section-heading post-date"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time></p>
+        <h2 class="step-title"><a href="{{ post.url }}">{{ post.data.heading }}</a></h2>
+        <p>{{ post.data.description }}</p>
     </li>
     {%- endfor %}
 </ol>
 
 {%- if pagination.pages.size > 1 %}
-<nav aria-label="Updates pages">
+<nav aria-label="posts pages">
     <ol class="pagination-list" role="list">
         {%- for pageEntry in pagination.pages %}
         <li>

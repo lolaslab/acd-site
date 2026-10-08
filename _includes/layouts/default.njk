@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{{ title }}</title>
         {#- Sharing metadata: posts use their heading, not the "ACD - …" browser title #}
-        {%- set isPost = tags and "updates" in tags %}
+        {%- set isPost = tags and "posts" in tags %}
         {%- set shareTitle = heading or title %}
         {%- set pageUrl = site.url + page.url %}
         {%- if description %}

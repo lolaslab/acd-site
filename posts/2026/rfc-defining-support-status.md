@@ -1,10 +1,10 @@
 ---
-tags: updates
-layout: layouts/update.njk
+tags: posts
+layout: layouts/post.njk
 heading: "RFC: Defining Support Status in ACD"
 title: "RFC: Defining Support Status in ACD"
 description: "Reviewing how support is computed in popular test suites, and proposing a support status framework for ACD"
-permalink: /updates/rfc-support-status/
+permalink: /posts/rfc-support-status/
 social_img: /images/rfc-support-status.png
 social_img_alt: "RFC: Defining Support Status in ACD. 
 Four status labels: Supported, Partial, Unsupported and Not tested."
