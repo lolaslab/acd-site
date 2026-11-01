@@ -367,7 +367,7 @@ summary {
 .panels > li {
     flex: 1;
     margin: 0;
-    padding: var(--space-l) max(var(--gutter), (100vw - var(--page-width)) / 2);
+    padding: var(--space-l) max(var(--gutter), (100vw - var(--page-width)) / 6);
     color: var(--alabaster-grey);
     font-size: var(--text-m);
     line-height: 1.6;
